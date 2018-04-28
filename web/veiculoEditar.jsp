@@ -27,7 +27,14 @@
                 </tr>
                 <tr>
                     <td>Situacao: </td>
-                    <td><input type="text" name="txtSituacao"/></td>
+                    <td>
+                        <select name="txtSituacao">
+                            <option value="Disponível">Disponível</option>
+                            <option value="Em serviço">Em serviço</option>
+                            <option value="Oficina">Oficina</option>
+                            <option value="Em desuso">Em desuso</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td><input type="submit"/></td>

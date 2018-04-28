@@ -60,7 +60,14 @@
                 </tr>
                 <tr>
                     <td>Situacao: </td>
-                    <td><input type="text" name="txtSituacao"/></td>
+                    <td><select name="txtSituacao">
+                            <option value="Expedida">Expedida</option>
+                            <option value="Em trânsito">Em trânsito</option>
+                            <option value="Pendente">Pendente</option>
+                            <option value="Devolvida">Devolvida</option>
+                            <option value="Entregue">Entregue</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr><td><input type="submit"/></td></tr>
             </table>

@@ -30,7 +30,4 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 *Todas as classes estão adicionando e editando.
 
 Melhorias a serem implementadas: 
-* Colocar Select no campo situacao nas telas editar e cadastrar das classes onde o campo aparece, 
-		  com as possibilidades de acordo com o diagrama de estado.
-* Colocar Select ao inves de Text nas telas de editar. 
 * Exibir o cadastro antes de excluir, com aquele lance de readonly nos campos.
