@@ -9,33 +9,61 @@
     <body>
         <h1>Editar Encomenda</h1>
         <form action="FrontController?action=EditarEncomenda" method="post">
-            Id: 
-            <input type="text" name="txtId"/><br/>
-            Descrição: 
-            <input type="text" name="txtDescricao"/><br/>
-            Peso: 
-            <input type="text" name="txtPeso"/><br/>
-            Id Cliente: 
-            <input type="text" name="txtId_cliente"/><br/>
-            Logradouro: 
-            <input type="text" name="txtLogradouro"/><br/>
-            Número: 
-            <input type="text" name="txtNumero"/><br/>
-            Bairro: 
-            <input type="text" name="txtBairro"/><br/>
-            Cep: 
-            <input type="text" name="txtCep"/><br/>
-            Valor: 
-            <input type="text" name="txtValor"/><br/>
-            Id Entregador: 
-            <input type="text" name="txtId_entregador"/><br/>
-            Data Pedido: 
-            <input type="text" name="txtData_pedido"/><br/>
-            Data Entrega: 
-            <input type="text" name="txtData_entrega"/><br/>
-            Situacao: 
-            <input type="text" name="txtSituacao"/><br/>
-            <input type="submit"/>
+            <table>
+                <tr>
+                    <td>Id: </td>
+                    <td><input type="text" name="txtId"/></td>
+                </tr>
+                <tr>
+                    <td>Descrição:</td>
+                    <td><input type="text" name="txtDescricao"/></td>
+                </tr>
+                <tr>
+                    <td>Peso: </td>
+                    <td><input type="text" name="txtPeso"/></td>
+                </tr>
+                <tr>
+                    <td>Id Cliente: </td>
+                    <td><input type="text" name="txtId_cliente"/></td>
+                </tr>
+                <tr>
+                    <td>Logradouro: </td>
+                    <td><input type="text" name="txtLogradouro"/></td>
+                </tr>
+                <tr>
+                    <td>Número: </td>
+                    <td><input type="text" name="txtNumero"/></td>
+                </tr>
+                <tr>
+                    <td>Bairro: </td>
+                    <td><input type="text" name="txtBairro"/></td>
+                </tr>
+                <tr>
+                    <td>Cep: </td>
+                    <td><input type="text" name="txtCep"/></td>
+                </tr>
+                <tr>
+                    <td>Valor: </td>
+                    <td><input type="text" name="txtValor"/></td>
+                </tr>
+                <tr>
+                    <td>Id Entregador: </td>
+                    <td><input type="text" name="txtId_entregador"/></td>
+                </tr>
+                <tr>
+                    <td>Data Pedido: </td>
+                    <td><input type="text" name="txtData_pedido"/></td>
+                </tr>
+                <tr>
+                    <td>Data Entrega: </td>
+                    <td><input type="text" name="txtData_entrega"/></td>
+                </tr>
+                <tr>
+                    <td>Situacao: </td>
+                    <td><input type="text" name="txtSituacao"/></td>
+                </tr>
+                <tr><td><input type="submit"/></td></tr>
+            </table>
         </form>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

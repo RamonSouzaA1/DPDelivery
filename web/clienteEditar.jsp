@@ -9,24 +9,41 @@
     <body>
         <h1>Editar Cliente</h1>
         <form action="FrontController?action=EditarCliente" method="post">
-            ID: 
-            <input type="text" name="txtId"/><br/>
-            Nome: 
-            <input type="text" name="txtNome"/><br/>
-            Logradouro: 
-            <input type="text" name="txtLogradouro"/><br/>
-            Número: 
-            <input type="text" name="txtNumero"/><br/>
-            Bairro: 
-            <input type="text" name="txtBairro"/><br/>
-            Cep: 
-            <input type="text" name="txtCep"/><br/>
-            Telefone: 
-            <input type="text" name="txtTelefone"/><br/>
-            Celular: 
-            <input type="text" name="txtCelular"/><br/>
-
-            <input type="submit"/>
+            <table>
+                <tr>
+                    <td>Id: </td>
+                    <td><input type="text" name="txtId"/></td>
+                </tr>
+                <tr>
+                    <td>Nome: </td>
+                    <td><input type="text" name="txtNome"/></td>
+                </tr>
+                <tr>
+                    <td>Logradouro: </td>
+                    <td><input type="text" name="txtLogradouro"/></td>
+                </tr>
+                <tr>
+                    <td>Número: </td>
+                    <td><input type="text" name="txtNumero"/></td>
+                </tr>
+                <tr>
+                    <td>Bairro: </td>
+                    <td><input type="text" name="txtBairro"/></td>
+                </tr>
+                <tr>
+                    <td>Cep: </td>
+                    <td><input type="text" name="txtCep"/></td>
+                </tr>
+                <tr>
+                    <td>Telefone: </td>
+                    <td><input type="text" name="txtTelefone"/></td>
+                </tr>
+                <tr>
+                    <td>Celular: </td>
+                    <td><input type="text" name="txtCelular"/></td>
+                </tr>
+                <tr><td><input type="submit"/></td></tr>
+            </table>
         </form>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
