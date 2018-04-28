@@ -13,7 +13,7 @@ package model;
  * Todos os getters e setters implementados
  * 
  */
-public class Encomenda {
+public class Encomenda extends Situacao{
     private int id;
     private String descricao;
     private int peso;
@@ -24,7 +24,6 @@ public class Encomenda {
     private String cep;
     private int id_entregador;
     private double valor;
-    private String situacao;
     private String data_pedido;
     private String data_entrega;
 
@@ -46,7 +45,7 @@ public class Encomenda {
         this.cep = cep;
         this.id_entregador = id_entregador;
         this.valor = valor;
-        this.situacao = situacao;
+        this.setSituacao(situacao);
         this.data_pedido = data_pedido;
         this.data_entrega = data_entrega;
     }
@@ -61,7 +60,7 @@ public class Encomenda {
         this.cep = cep;
         this.id_entregador = id_entregador;
         this.valor = valor;
-        this.situacao = "Expedida";
+        this.setSituacao("Expedida");
         this.data_pedido = data_pedido;
         this.data_entrega = data_entrega;
     }
@@ -76,7 +75,7 @@ public class Encomenda {
         this.cep = cep;
         this.id_entregador = id_entregador;
         this.valor = valor;
-        this.situacao = situacao;
+        this.setSituacao(situacao);
         this.data_pedido = data_pedido;
         this.data_entrega = data_entrega;
     }
@@ -165,14 +164,6 @@ public class Encomenda {
         this.valor = valor;
     }
 
-    public String getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(String situacao) {
-        this.situacao = situacao;
-    }
-
     public String getData_pedido() {
         return data_pedido;
     }
@@ -188,6 +179,9 @@ public class Encomenda {
     public void setData_entrega(String data_entrega) {
         this.data_entrega = data_entrega;
     }
-    
-    
+
+    @Override
+    public String getDados() {
+        return "A encomenda com Id: " + this.getId() + " está " + this.getSituacao() + ".";
+    }
 }

@@ -16,12 +16,11 @@ import persistence.VeiculoDAO;
  * Todos os getters e setters implementados
  * 
  */
-public class Veiculo {
+public class Veiculo extends Situacao{
     private int id;
     private String placa;
     private String marca;
     private String modelo;
-    private String situacao;
 
     public Veiculo() {
     }
@@ -35,7 +34,7 @@ public class Veiculo {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
-        this.situacao = "Disponível";
+        this.setSituacao("Disponível");
     }
     
     public Veiculo(int id, String placa, String marca, String modelo, String situacao) {
@@ -43,21 +42,21 @@ public class Veiculo {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
-        this.situacao = situacao;
+        this.setSituacao(situacao);
     }
 
     public Veiculo(String placa, String marca, String modelo, String situacao) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
-        this.situacao = situacao;
+        this.setSituacao(situacao);
     }
 
     public Veiculo(String placa, String marca, String modelo) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
-        this.situacao = "Disponível";
+        this.setSituacao("Disponível");
     }
 
     public int getId() {
@@ -92,15 +91,11 @@ public class Veiculo {
         this.modelo = modelo;
     }
 
-    public String getSituacao() {
-        return situacao;
+    @Override
+    public String getDados() {
+        return "Veículo: " + this.getMarca() 
+                + this.getModelo() + " "
+                + this.getPlaca() + " "
+                + " está " + this.getSituacao() + ".";
     }
-
-    public void setSituacao(String situacao) {
-        this.situacao = situacao;
-    }
-    
-    
-    
-    
 }
