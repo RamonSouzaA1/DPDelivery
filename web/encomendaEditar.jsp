@@ -3,11 +3,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Cadastro de Encomenda</title>
+        <title>Editar Encomenda</title>
     </head>
     
     <body>
-        <h1>Cadastro de Encomenda</h1>
+        <h1>Editar Encomenda</h1>
         <form action="FrontController?action=EditarEncomenda" method="post">
             Id: 
             <input type="text" name="txtId"/><br/>
@@ -33,6 +33,8 @@
             <input type="text" name="txtData_pedido"/><br/>
             Data Entrega: 
             <input type="text" name="txtData_entrega"/><br/>
+            Situacao: 
+            <input type="text" name="txtSituacao"/><br/>
             <input type="submit"/>
         </form>
     </body>
