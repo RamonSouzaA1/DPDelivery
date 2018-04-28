@@ -5,9 +5,6 @@
  */
 package model;
 
-import model.Estado.EncomendaEstado;
-import model.Estado.EncomendaEstadoPedido;
-
 /**
  *
  * @author Ramon
@@ -30,48 +27,10 @@ public class Encomenda {
     private String situacao;
     private String data_pedido;
     private String data_entrega;
-    private EncomendaEstado estado;
 
     public Encomenda() {
-        
-        this.estado = new EncomendaEstadoPedido();
-        
     }
     
-    public void setEstado(EncomendaEstado estado){
-        
-        this.estado = estado;
-        
-    }
-    
-    public String getEstado(){
-        return this.estado.getEstado();
-    }
-    
-    
-    public String finalizar(){
-        
-        return estado.finalizar();
-    }
-    
-    public String enviar(){
-        
-        return estado.enviar();
-                
-    }
-    
-    public String cancelar(){
-        
-        return estado.cancelar();
-                
-    }
-    
-    public String pedir(){
-        
-        return estado.pedir();
-                
-    }
-
     public Encomenda(int id) {
         this.id = id;
     }
