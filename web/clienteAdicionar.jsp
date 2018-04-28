@@ -9,25 +9,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Cadastro de Contatos</title>
+        <title>Cadastro de Clientes</title>
     </head>
     
     <body>
-        <h1>Cadastro de Veículos</h1>
+        <h1>Cadastro de Clientes</h1>
         <form action="FrontController?action=GravarCliente" method="post">
-            Entre com seu Nome: 
+            Nome: 
             <input type="text" name="txtNome"/><br/>
-            Entre com seu Logradouro: 
+            Logradouro: 
             <input type="text" name="txtLogradouro"/><br/>
-            Entre com seu Número: 
+            Número: 
             <input type="text" name="txtNumero"/><br/>
-            Entre com seu Bairro: 
+            Bairro: 
             <input type="text" name="txtBairro"/><br/>
-            Entre com seu Cep: 
+            Cep: 
             <input type="text" name="txtCep"/><br/>
-            Entre com seu Telefone: 
+            Telefone: 
             <input type="text" name="txtTelefone"/><br/>
-            Entre com seu Celular: 
+            Celular: 
             <input type="text" name="txtCelular"/><br/>
 
             <input type="submit"/>
