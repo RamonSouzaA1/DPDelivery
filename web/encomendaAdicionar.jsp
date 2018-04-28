@@ -1,9 +1,3 @@
-<%-- 
-    Document   : contatoAdicionar
-    Created on : 09/04/2018, 21:28:04
-    Author     : Ramon
---%>
-
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
 <!DOCTYPE html>
 <html>

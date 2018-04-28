@@ -1,9 +1,3 @@
-<%-- 
-    Document   : encomendaMenu
-    Created on : 24/04/2018, 01:09:52
-    Author     : Ramon
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
