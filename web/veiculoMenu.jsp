@@ -1,9 +1,3 @@
-<%-- 
-    Document   : veiculoMenu
-    Created on : 24/04/2018, 01:10:18
-    Author     : Ramon
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
