@@ -27,7 +27,7 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 
 12 - Observer
 
-*Todas as classes estão adicionando e editando.
+*Todas as classes estão consultando, adicionando e editando.
 
 Melhorias a serem implementadas: 
 * Exibir o cadastro antes de excluir, com aquele lance de readonly nos campos.
