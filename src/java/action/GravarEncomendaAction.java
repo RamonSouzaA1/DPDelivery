@@ -31,8 +31,6 @@ public class GravarEncomendaAction implements Action {
         
         int id_entregador = Integer.parseInt(request.getParameter("txtId_entregador"));
         //------------------------------------------------------------------//
-        
-        String situacao = request.getParameter("txtSituacao");
         String data_pedido = request.getParameter("txtData_pedido");
         String data_entrega = request.getParameter("txtData_entrega");
         
@@ -41,7 +39,7 @@ public class GravarEncomendaAction implements Action {
         } else{
             try{          
                 Encomenda encomenda = new Encomenda(descricao, peso, id_cliente, logradouro, numero, valor, bairro,
-                        cep, id_entregador, situacao, data_pedido, data_entrega);
+                        cep, id_entregador, data_pedido, data_entrega);
                 EncomendaDAO.getInstance().save(encomenda);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)

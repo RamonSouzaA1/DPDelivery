@@ -33,9 +33,9 @@ public class Entregador {
         this.id_veiculo = id_veiculo;
     }
 
-    public Entregador(String nome, String situacao, int id_veiculo) {
+    public Entregador(String nome, int id_veiculo) {
         this.nome = nome;
-        this.situacao = situacao;
+        this.situacao = "Disponível";
         this.id_veiculo = id_veiculo;
     }
 

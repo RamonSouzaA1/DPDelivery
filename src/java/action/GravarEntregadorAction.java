@@ -19,7 +19,6 @@ public class GravarEntregadorAction implements Action {
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException{
         String nome = request.getParameter("txtNome");
-        String situacao = request.getParameter("txtSituacao");
         //chave estrangeira
         int id_veiculo = Integer.parseInt(request.getParameter("txtId_veiculo"));
         //realmente precisa desse if
@@ -27,7 +26,7 @@ public class GravarEntregadorAction implements Action {
             response.sendRedirect("index.jsp");
         } else{
             try{
-                Entregador entregador = new Entregador(nome, situacao, id_veiculo);
+                Entregador entregador = new Entregador(nome, id_veiculo);
                 EntregadorDAO.getInstance().save(entregador);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)

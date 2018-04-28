@@ -21,12 +21,11 @@ public class GravarVeiculoAction implements Action {
         String placa = request.getParameter("txtPlaca");
         String marca = request.getParameter("txtMarca");
         String modelo = request.getParameter("txtModelo");
-        String situacao = request.getParameter("txtSituacao");
         if(placa.equals("")){
             response.sendRedirect("index.jsp");
         } else{
             try{
-                Veiculo veiculo = new Veiculo(placa, marca, modelo, situacao);
+                Veiculo veiculo = new Veiculo(placa, marca, modelo);
                 VeiculoDAO.getInstance().save(veiculo);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)

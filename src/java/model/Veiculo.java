@@ -53,6 +53,13 @@ public class Veiculo {
         this.situacao = situacao;
     }
 
+    public Veiculo(String placa, String marca, String modelo) {
+        this.placa = placa;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.situacao = "Disponível";
+    }
+
     public int getId() {
         return id;
     }

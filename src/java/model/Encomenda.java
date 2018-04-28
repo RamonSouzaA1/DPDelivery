@@ -91,6 +91,21 @@ public class Encomenda {
         this.data_pedido = data_pedido;
         this.data_entrega = data_entrega;
     }
+    
+    public Encomenda( String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String data_pedido, String data_entrega) {
+        this.descricao = descricao;
+        this.peso = peso;
+        this.id_cliente = id_cliente;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.id_entregador = id_entregador;
+        this.valor = valor;
+        this.situacao = "Expedida";
+        this.data_pedido = data_pedido;
+        this.data_entrega = data_entrega;
+    }
 
     public Encomenda(String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String situacao, String data_pedido, String data_entrega) {
         this.descricao = descricao;
