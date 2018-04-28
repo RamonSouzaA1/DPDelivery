@@ -13,7 +13,7 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 
 5 - Action (Command) ✓
 
-6 - Factory Method
+6 - Factory Method ✓
 
 7 - Template Method
 
