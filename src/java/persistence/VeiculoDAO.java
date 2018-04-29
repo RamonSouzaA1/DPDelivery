@@ -49,7 +49,7 @@ public class VeiculoDAO {
             st = conn.createStatement();
             st.execute("INSERT INTO veiculo (id, placa, marca, modelo, situacao)"
                     + " VALUES ('" + veiculo.getId() + "', '" + veiculo.getPlaca() + "', '" + veiculo.getMarca() + "', '" 
-                    + veiculo.getModelo() + "', '" + veiculo.getSituacao() +"')");
+                    + veiculo.getModelo() + "', '" + veiculo.estado.getEstado() +"')");
         }   catch (SQLException e) {
             throw e;
         } finally {

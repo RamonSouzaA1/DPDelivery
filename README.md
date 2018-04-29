@@ -17,7 +17,7 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 
 7 - Template Method ✓ (Obs: Falta exibir a situação em alguma tela)
 
-8 - State
+8 - State ✓ (Obs: implementado só na classe Veiculo porque as outras estao usando o Factory Method.)
 
 9 - Strategy
 
