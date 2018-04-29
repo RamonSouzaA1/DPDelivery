@@ -3,10 +3,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sucesso</title>
+        <title>Erro</title>
     </head>
     <body>
-        <h1>Executado com seucesso!</h1>
-        <a href="index.jsp">Inicio</a>
+        <h1>Algo de errado não esta certo.</h1>
     </body>
 </html>

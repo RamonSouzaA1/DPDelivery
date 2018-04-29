@@ -15,7 +15,7 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 
 6 - Factory Method ✓
 
-7 - Template Method
+7 - Template Method ✓ (Obs: Falta exibir a situação em alguma tela)
 
 8 - State
 
