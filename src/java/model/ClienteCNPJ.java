@@ -8,21 +8,17 @@ package model;
 /**
  *
  * @author Ramon
- * 
- * Construtor vazio, somente com id e com todos os atributos.
- * Todos os getters e setters implementados
- * 
  */
-public class Cliente extends BaseCliente implements Desconto{
-    
-    public Cliente() {
+public class ClienteCNPJ extends BaseCliente implements Desconto{
+        
+    public ClienteCNPJ() {
     }
 
-    public Cliente(int id) {
+    public ClienteCNPJ(int id) {
         this.id = id;
     }
 
-    public Cliente(int id, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular) {
+    public ClienteCNPJ(int id, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular) {
         this.id = id;
         this.nome = nome;
         this.logradouro = logradouro;
@@ -34,8 +30,7 @@ public class Cliente extends BaseCliente implements Desconto{
         this.desconto = this.obterDesconto();
     }
 
-    public Cliente(String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular) {
-        this.id = id;
+    public ClienteCNPJ(String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular) {
         this.nome = nome;
         this.logradouro = logradouro;
         this.numero = numero;
@@ -48,7 +43,7 @@ public class Cliente extends BaseCliente implements Desconto{
 
     @Override
     public int obterDesconto() {
-        return 0;
+        return 20;
     }
 
 }

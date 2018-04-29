@@ -7,7 +7,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Cliente;
 import model.Encomenda;
+import persistence.ClienteDAO;
 import persistence.EncomendaDAO;
 
 public class GravarEncomendaAction implements Action {
@@ -37,9 +39,14 @@ public class GravarEncomendaAction implements Action {
         if(descricao.equals("")){
             response.sendRedirect("index.jsp");
         } else{
-            try{          
+            try{
+                ClienteDAO clienteDAO = new ClienteDAO();
+                Cliente cliente = new Cliente();
+                cliente = clienteDAO.obterCliente(id_cliente);
+                valor = valor - (valor * cliente.obterDesconto());
                 Encomenda encomenda = new Encomenda(descricao, peso, id_cliente, logradouro, numero, valor, bairro,
                         cep, id_entregador, data_pedido, data_entrega);
+                
                 EncomendaDAO.getInstance().save(encomenda);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)

@@ -101,7 +101,7 @@ public class EncomendaDAO {
             st.execute("INSERT INTO encomenda (id, descricao, peso, id_cliente, logradouro, numero, valor, bairro, cep, id_entregador, situacao, data_pedido, data_entrega)"
                     + " VALUES ('" + encomenda.getId() + "', '" + encomenda.getDescricao() + "', '" + encomenda.getPeso() + "', '" 
                     + encomenda.getId_cliente() + "', '" + encomenda.getLogradouro() + "', '" + encomenda.getNumero() + "', '" 
-                    + encomenda.getValor() + "', '" + encomenda.getBairro() + "', '" + encomenda.getCep() + "', '" + encomenda.getId_entregador() + "',"
+                    + (encomenda.getValor()) + "', '" + encomenda.getBairro() + "', '" + encomenda.getCep() + "', '" + encomenda.getId_entregador() + "',"
                             + " '" + encomenda.getSituacao() + "', '" + encomenda.getData_pedido() + "', '" + encomenda.getData_entrega() + "')");
         } catch (SQLException e) {
             throw e;
