@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  *
  * @author Ramon
@@ -13,10 +16,11 @@ package model;
  * Todos os getters e setters implementados
  * 
  */
-public class Entregador extends Situacao{
+public class Entregador extends Situacao implements Observer{
     private int id;
     private String nome;
     private int id_veiculo;
+    private Observable veiculo;
 
     public Entregador() {
     }
@@ -65,6 +69,23 @@ public class Entregador extends Situacao{
     @Override
     public String getDados() {
         return "Entregador: " + this.getNome() + " está " + this.getSituacao() + ".";
+    }
+    
+    public Observable getVeiculo(){
+        return veiculo;
+    }
+    
+    public void setVeiculo(Observable veiculo){
+        this.veiculo = veiculo;
+    }
+    
+    @Override
+    public void update(Observable veiculoSubject, Object arg) {
+        if(veiculoSubject instanceof Veiculo){
+            Veiculo veiculo = (Veiculo) veiculoSubject;
+            //veiculoDisponivel = veiculo.getEstado();
+            //retornar alguma coisa em alguma tela informando que tem veiculo disponivel
+        }
     }
     
     

@@ -13,27 +13,27 @@ public class VeiculoEstadoEmDesuso implements VeiculoEstado{
 
     @Override
     public String getEstado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Veículo Estado desuso";
     }
 
     @Override
     public String disponivel(Veiculo v) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Veícculo não está disponivel";
     }
 
     @Override
     public String emServico(Veiculo v) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Veícculo não está em serviço";
     }
 
     @Override
     public String oficina(Veiculo v) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Veículo não pode ir para oficina";
     }
 
     @Override
     public String emDesuso(Veiculo v) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Veícculo já está em desuso";
     }
     
 }

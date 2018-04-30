@@ -16,7 +16,7 @@
                 <td>Placa</td>
                 <td>Marca</td>
                 <td>Modelo</td>
-                <td>Situacao</td>
+               
             </tr>
             <c:forEach items="${veiculos}" var="veiculo">
                 <tr>
@@ -24,7 +24,7 @@
                     <td><c:out value="${veiculo.placa}"></c:out></td>
                     <td><c:out value="${veiculo.marca}"></c:out></td>
                     <td><c:out value="${veiculo.modelo}"></c:out></td>
-                    <td><c:out value="${veiculo.situacao}"></c:out></td>
+                    
                     </tr>
             </c:forEach>
         </table>

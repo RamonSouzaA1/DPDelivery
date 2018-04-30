@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.Observable;
 import persistence.VeiculoDAO;
 
 /**
@@ -16,7 +17,7 @@ import persistence.VeiculoDAO;
  * Todos os getters e setters implementados
  * 
  */
-public class Veiculo {
+public class Veiculo extends Observable{
     private int id;
     private String placa;
     private String marca;
@@ -70,6 +71,8 @@ public class Veiculo {
         {
             case "Disponivel":
                 this.estado = new VeiculoEstadoDisponivel();
+                setChanged();
+                notifyObservers();
                 break;
             case "Em desuso":
                 this.estado = new VeiculoEstadoEmDesuso();
@@ -88,6 +91,8 @@ public class Veiculo {
         this.marca = marca;
         this.modelo = modelo;
         this.estado = new VeiculoEstadoDisponivel();
+        setChanged();
+        notifyObservers();
     }
 
     public int getId() {
@@ -126,5 +131,9 @@ public class Veiculo {
         
         this.estado = estado;
         
+    }
+    
+    public String getEstado() {
+        return estado.getEstado();
     }
 }

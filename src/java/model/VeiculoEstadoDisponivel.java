@@ -13,7 +13,7 @@ public class VeiculoEstadoDisponivel implements VeiculoEstado{
 
     @Override
     public String getEstado() {
-        return "Disponível";
+        return "Veículo Estado Disponível";
     }
 
     @Override
@@ -24,19 +24,19 @@ public class VeiculoEstadoDisponivel implements VeiculoEstado{
     @Override
     public String emServico(Veiculo v) {
         v.setEstado(new VeiculoEstadoEmServico());
-        return "Em serviço";
+        return "Veículo está em serviço";
     }
 
     @Override
     public String oficina(Veiculo v) {
         v.setEstado(new VeiculoEstadoOficina());
-        return "Oficina";
+        return "Veículo está na oficina";
     }
 
     @Override
     public String emDesuso(Veiculo v) {
         v.setEstado(new VeiculoEstadoEmDesuso());
-        return "Em desuso";
+        return "Veículo está em desuso";
     }
     
 }
