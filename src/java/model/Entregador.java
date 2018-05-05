@@ -68,7 +68,7 @@ public class Entregador extends Situacao implements Observer{
 
     @Override
     public String getDados() {
-        return "Entregador: " + this.getNome() + " está " + this.getSituacao() + ".";
+        return this.getSituacao();
     }
     
     public Observable getVeiculo(){
@@ -83,6 +83,7 @@ public class Entregador extends Situacao implements Observer{
     public void update(Observable veiculoSubject, Object arg) {
         if(veiculoSubject instanceof Veiculo){
             Veiculo veiculo = (Veiculo) veiculoSubject;
+            
             //veiculoDisponivel = veiculo.getEstado();
             //retornar alguma coisa em alguma tela informando que tem veiculo disponivel
         }

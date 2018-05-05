@@ -13,7 +13,7 @@ public class VeiculoEstadoOficina implements VeiculoEstado{
 
     @Override
     public String getEstado() {
-        return "Veículo Estado oficina";
+        return "Oficina";
     }
 
     @Override

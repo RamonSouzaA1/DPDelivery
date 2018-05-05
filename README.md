@@ -15,7 +15,7 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 
 6 - Factory Method ✓
 
-7 - Template Method ✓ (Obs: Falta exibir a situação em alguma tela)
+7 - Template Method ✓ (Obs: Usado no metodo save do DAO do entregador e encomenda)
 
 8 - State ✓ (Obs: implementado só na classe Veiculo porque as outras estao usando o Factory Method.)
 

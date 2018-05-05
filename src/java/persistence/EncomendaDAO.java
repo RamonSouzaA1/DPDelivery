@@ -102,7 +102,7 @@ public class EncomendaDAO {
                     + " VALUES ('" + encomenda.getId() + "', '" + encomenda.getDescricao() + "', '" + encomenda.getPeso() + "', '" 
                     + encomenda.getId_cliente() + "', '" + encomenda.getLogradouro() + "', '" + encomenda.getNumero() + "', '" 
                     + (encomenda.getValor()) + "', '" + encomenda.getBairro() + "', '" + encomenda.getCep() + "', '" + encomenda.getId_entregador() + "',"
-                            + " '" + encomenda.getSituacao() + "', '" + encomenda.getData_pedido() + "', '" + encomenda.getData_entrega() + "')");
+                            + " '" + encomenda.getDados() + "', '" + encomenda.getData_pedido() + "', '" + encomenda.getData_entrega() + "')");
         } catch (SQLException e) {
             throw e;
         } finally {

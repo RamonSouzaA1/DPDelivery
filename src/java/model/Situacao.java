@@ -8,6 +8,7 @@ package model;
 /**
  *
  * @author Ramon
+ * padrão Template Method
  */
 public abstract class Situacao {
     private String situacao;
@@ -20,6 +21,6 @@ public abstract class Situacao {
         this.situacao = situacao;
     }
     
-    public abstract String getDados(); // a classe veiculo vai implementar ela primerio
+    public abstract String getDados(); 
     
 }

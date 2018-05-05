@@ -180,7 +180,7 @@ public class Encomenda extends Situacao{
 
     @Override
     public String getDados() {
-        return "A encomenda com Id: " + this.getId() + " está " + this.getSituacao() + ".";
+        return this.getSituacao();
     }
 
 }

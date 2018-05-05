@@ -48,7 +48,7 @@ public class EntregadorDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             st.execute("INSERT INTO entregador (nome, situacao, id_veiculo)"
-                    + " VALUES ('" + entregador.getNome() + "', '" + entregador.getSituacao() + "', '" 
+                    + " VALUES ('" + entregador.getNome() + "', '" + entregador.getDados() + "', '" 
                     + entregador.getId_veiculo() +"')");
         } catch (SQLException e) {
             throw e;

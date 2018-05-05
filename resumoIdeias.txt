@@ -5,3 +5,13 @@ Strategy
 - Então, o calculo do frete é realizado pelo tipo de cliente, na classe do pacote model.
 - Ao gravar a encomenda, verifica se o cliente é CPF ou CNPJ, a partir disso ele instancia o cliente correto e faz o calculo
 	para poder criar a encomenda com o valor obtido do metodo obterCalculoFrete do cliente correto.
+
+	
+	
+Template Method
+
+A definição oficial do padrão Template Method é: “O Padrão Template Method define o esqueleto de um algoritmo dentro de um método, 
+transferindo alguns de seus passos para as subclasses. O Template Method permite que as subclasses redefinam certos passos de um algoritmo 
+sem alterar a estrutura do próprio algoritmo”.
+
+- Criei um abstract Situacao que tem um atributo situacao(string), get e set, e um metodo getDados();

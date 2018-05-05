@@ -13,7 +13,7 @@ public class VeiculoEstadoEmDesuso implements VeiculoEstado{
 
     @Override
     public String getEstado() {
-        return "Veículo Estado desuso";
+        return "Desuso";
     }
 
     @Override
