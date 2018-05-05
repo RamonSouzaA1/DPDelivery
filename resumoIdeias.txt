@@ -6,12 +6,15 @@ Strategy
 - Ao gravar a encomenda, verifica se o cliente é CPF ou CNPJ, a partir disso ele instancia o cliente correto e faz o calculo
 	para poder criar a encomenda com o valor obtido do metodo obterCalculoFrete do cliente correto.
 
-	
-	
-Template Method
 
-A definição oficial do padrão Template Method é: “O Padrão Template Method define o esqueleto de um algoritmo dentro de um método, 
-transferindo alguns de seus passos para as subclasses. O Template Method permite que as subclasses redefinam certos passos de um algoritmo 
-sem alterar a estrutura do próprio algoritmo”.
+Observer
+- Observer vai ser o entregador
+- Observable vai ser veiculo.
+- Quando o veiculo mudar situação para "disponivel", o status do entregador vai mudar para disponivel.
 
-- Criei um abstract Situacao que tem um atributo situacao(string), get e set, e um metodo getDados();
+Memento
+- o memento vai salvar os status das encomendas. 
+- Foi criado um campo no banco para encomenda com nome memento. Salva text. 
+- Quando instanciado, já inicia com o estado inicial.
+- A cada status ele vai salvar "-> " + getSituacao().
+- A gente exibe os andamentos na pagina de consulta.

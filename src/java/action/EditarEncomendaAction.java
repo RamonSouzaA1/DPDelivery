@@ -60,12 +60,18 @@ public class EditarEncomendaAction implements Action{
                     cliente = clienteDAO.obterCliente(id_cliente);
                     valor = cliente.obterCalculoFrete(peso);
                 }
+                
                 EncomendaDAO encomendaDAO = new EncomendaDAO();
+                
                 Encomenda encomenda = new Encomenda();
                 encomenda = encomendaDAO.obterEncomenda(id);
+                
+                //memento
+                String memento = encomenda.getMemento();
+                memento = memento + " -> " + situacao;
+                
                 encomendaDAO.editar(encomenda, descricao, peso, id_cliente, logradouro, numero, valor, bairro,
-                        cep, id_entregador, situacao, data_pedido, data_entrega);
-
+                        cep, id_entregador, situacao, data_pedido, data_entrega, memento);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)
             {

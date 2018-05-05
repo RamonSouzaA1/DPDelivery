@@ -23,7 +23,7 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 
 10 - Chain Of Responsability
 
-11 - Memento
+11 - Memento ✓ (obs: implementado na classe encomenda.)
 
 12 - Observer
 

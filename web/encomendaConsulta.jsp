@@ -25,6 +25,7 @@
                 <td>Data do Pedido</td>
                 <td>Data da Entrega</td>
                 <td>Situação</td>
+                <td>Acompanhamento</td>
             </tr>
             <c:forEach items="${encomendas}" var="encomenda">
                 <tr>          
@@ -41,6 +42,7 @@
                     <td><c:out value="${encomenda.data_pedido}"></c:out></td>
                     <td><c:out value="${encomenda.data_entrega}"></c:out></td>
                     <td><c:out value="${encomenda.situacao}"></c:out></td>
+                    <td><c:out value="${encomenda.memento}"></c:out></td>
                     </tr>
             </c:forEach>
         </table>

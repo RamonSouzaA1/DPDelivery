@@ -33,7 +33,8 @@ public class EncomendaDAO {
             encomenda = new Encomenda
                           (rs.getInt("id"), rs.getString("descricao"), rs.getInt("peso"), rs.getInt("id_cliente"),
                                      rs.getString("logradouro"), rs.getInt("numero"), rs.getDouble("valor"), rs.getString("bairro"),
-                                     rs.getString("cep"), rs.getInt("id_entregador"),  rs.getString("situacao"), rs.getString("data_pedido"), rs.getString("data_entrega"));
+                                     rs.getString("cep"), rs.getInt("id_entregador"),  rs.getString("situacao"), rs.getString("data_pedido"), 
+                                     rs.getString("data_entrega"), rs.getString("memento"));
             
         }catch (SQLException e) {
             throw e;
@@ -43,13 +44,13 @@ public class EncomendaDAO {
         return encomenda;
     }
 
-    public void editar(Encomenda encomenda, String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String situacao, String data_pedido, String data_entrega) throws SQLException, ClassNotFoundException {
+    public void editar(Encomenda encomenda, String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String situacao, String data_pedido, String data_entrega, String memento) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            String sql = "UPDATE encomenda SET descricao = ?, peso = ?, id_cliente = ?, logradouro = ?, numero = ?, valor = ?, bairro = ?, cep = ?, id_entregador = ?, situacao = ?, data_pedido = ?, data_entrega = ? WHERE id = ?";
+            String sql = "UPDATE encomenda SET descricao = ?, peso = ?, id_cliente = ?, logradouro = ?, numero = ?, valor = ?, bairro = ?, cep = ?, id_entregador = ?, situacao = ?, data_pedido = ?, data_entrega = ?, memento = ? WHERE id = ?";
             PreparedStatement comando = conn.prepareStatement(sql);
             comando.setString(1, descricao);
             comando.setInt(2, peso);
@@ -63,7 +64,8 @@ public class EncomendaDAO {
             comando.setString(10, situacao);
             comando.setString(11, data_pedido);
             comando.setString(12, data_entrega);
-            comando.setInt(13, encomenda.getId());
+            comando.setString(13, memento);
+            comando.setInt(14, encomenda.getId());
             comando.execute();
         } catch (SQLException e) {
             throw e;
@@ -98,11 +100,11 @@ public class EncomendaDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("INSERT INTO encomenda (id, descricao, peso, id_cliente, logradouro, numero, valor, bairro, cep, id_entregador, situacao, data_pedido, data_entrega)"
+            st.execute("INSERT INTO encomenda (id, descricao, peso, id_cliente, logradouro, numero, valor, bairro, cep, id_entregador, situacao, data_pedido, data_entrega, memento)"
                     + " VALUES ('" + encomenda.getId() + "', '" + encomenda.getDescricao() + "', '" + encomenda.getPeso() + "', '" 
                     + encomenda.getId_cliente() + "', '" + encomenda.getLogradouro() + "', '" + encomenda.getNumero() + "', '" 
-                    + (encomenda.getValor()) + "', '" + encomenda.getBairro() + "', '" + encomenda.getCep() + "', '" + encomenda.getId_entregador() + "',"
-                            + " '" + encomenda.getDados() + "', '" + encomenda.getData_pedido() + "', '" + encomenda.getData_entrega() + "')");
+                    + encomenda.getValor() + "', '" + encomenda.getBairro() + "', '" + encomenda.getCep() + "', '" + encomenda.getId_entregador() + "', '"
+                    + encomenda.getDados() + "', '" + encomenda.getData_pedido() + "', '" + encomenda.getData_entrega() + "', '" + encomenda.getMemento() + "')");
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -123,7 +125,8 @@ public class EncomendaDAO {
                 Encomenda encomenda = new Encomenda
                                     (rs.getInt("id"), rs.getString("descricao"), rs.getInt("peso"), rs.getInt("id_cliente"),
                                      rs.getString("logradouro"), rs.getInt("numero"), rs.getDouble("valor"), rs.getString("bairro"),
-                                     rs.getString("cep"), rs.getInt("id_entregador"),  rs.getString("situacao"), rs.getString("data_pedido"), rs.getString("data_entrega"));
+                                     rs.getString("cep"), rs.getInt("id_entregador"),  rs.getString("situacao"), rs.getString("data_pedido"), 
+                                            rs.getString("data_entrega"), rs.getString("memento"));
                 encomendas.add(encomenda);
             }
         }catch (SQLException e) {

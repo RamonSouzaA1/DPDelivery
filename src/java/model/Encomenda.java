@@ -26,6 +26,15 @@ public class Encomenda extends Situacao{
     private double valor;
     private String data_pedido;
     private String data_entrega;
+    private String memento;
+
+    public String getMemento() {
+        return memento;
+    }
+
+    public void setMemento(String memento) {
+        this.memento = memento;
+    }
 
     public Encomenda() {
     }
@@ -34,7 +43,7 @@ public class Encomenda extends Situacao{
         this.id = id;
     }
 
-    public Encomenda(int id, String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String situacao, String data_pedido, String data_entrega) {
+    public Encomenda(int id, String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String situacao, String data_pedido, String data_entrega, String memento) {
         this.id = id;
         this.descricao = descricao;
         this.peso = peso;
@@ -48,6 +57,7 @@ public class Encomenda extends Situacao{
         this.setSituacao(situacao);
         this.data_pedido = data_pedido;
         this.data_entrega = data_entrega;
+        this.memento = memento;
     }
     
     public Encomenda( String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String data_pedido, String data_entrega) {
@@ -63,6 +73,7 @@ public class Encomenda extends Situacao{
         this.setSituacao("Expedida");
         this.data_pedido = data_pedido;
         this.data_entrega = data_entrega;
+        this.memento = "Expedida";
     }
 
     public Encomenda(String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String situacao, String data_pedido, String data_entrega) {
