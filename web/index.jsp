@@ -13,7 +13,8 @@
     </head>
     <body>
         <h1>DP Delivery</h1>
-        <button onclick="window.location.href='clienteMenu.jsp'">Cliente</button>
+        <button onclick="window.location.href='clienteMenu.jsp'">Cliente CPF</button>
+        <button onclick="window.location.href='clienteCNPJMenu.jsp'">Cliente CNPJ</button>
         <button onclick="window.location.href='entregadorMenu.jsp'">Entregador</button>
         <button onclick="window.location.href='veiculoMenu.jsp'">Veículo</button>
         <button onclick="window.location.href='encomendaMenu.jsp'">Encomenda</button>

@@ -7,12 +7,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Cliente;
-import persistence.ClienteDAO;
+import model.ClienteCNPJ;
+import persistence.ClienteCnpjDAO;
 
-public class GravarClienteAction implements Action {
+public class GravarClienteCNPJAction implements Action {
 
-    public GravarClienteAction() {
+    public GravarClienteCNPJAction() {
     
     }
     
@@ -30,8 +30,8 @@ public class GravarClienteAction implements Action {
             response.sendRedirect("index.jsp");
         } else{
             try{
-                Cliente cliente = new Cliente(nome, logradouro, numero, bairro, cep, telefone, celular, doc);
-                ClienteDAO.getInstance().save(cliente);
+                ClienteCNPJ cliente = new ClienteCNPJ(nome, logradouro, numero, bairro, cep, telefone, celular, doc);
+                ClienteCnpjDAO.getInstance().save(cliente);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)
             {

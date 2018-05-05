@@ -10,7 +10,17 @@ package model;
  * @author Ramon
  */
 public class ClienteCNPJ extends BaseCliente implements Desconto{
-        
+    
+    private String cnpj;
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+    
     public ClienteCNPJ() {
     }
 
@@ -18,7 +28,7 @@ public class ClienteCNPJ extends BaseCliente implements Desconto{
         this.id = id;
     }
 
-    public ClienteCNPJ(int id, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular) {
+    public ClienteCNPJ(int id, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String cnpj) {
         this.id = id;
         this.nome = nome;
         this.logradouro = logradouro;
@@ -27,10 +37,10 @@ public class ClienteCNPJ extends BaseCliente implements Desconto{
         this.cep = cep;
         this.telefone = telefone;
         this.celular = celular;
-        this.desconto = this.obterDesconto();
+        this.cnpj = cnpj;
     }
 
-    public ClienteCNPJ(String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular) {
+    public ClienteCNPJ(String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String cnpj) {
         this.nome = nome;
         this.logradouro = logradouro;
         this.numero = numero;
@@ -38,7 +48,7 @@ public class ClienteCNPJ extends BaseCliente implements Desconto{
         this.cep = cep;
         this.telefone = telefone;
         this.celular = celular;
-        this.desconto = this.obterDesconto();
+        this.cnpj = cnpj;
     }
 
     @Override

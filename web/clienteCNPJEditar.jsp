@@ -3,13 +3,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Cadastro de Clientes</title>
+        <title>Editar Cliente</title>
     </head>
-    
+
     <body>
-        <h1>Cadastro de Clientes</h1>
-        <form action="FrontController?action=GravarCliente" method="post">
+        <h1>Editar Cliente</h1>
+        <form action="FrontController?action=EditarClienteCNPJ" method="post">
             <table>
+                <tr>
+                    <td>Id: </td>
+                    <td><input type="text" name="txtId"/></td>
+                </tr>
                 <tr>
                     <td>Nome: </td>
                     <td><input type="text" name="txtNome"/></td>
@@ -39,7 +43,7 @@
                     <td><input type="text" name="txtCelular"/></td>
                 </tr>
                 <tr>
-                    <td>CPF: </td>
+                    <td>CNPJ: </td>
                     <td><input type="text" name="txtDoc"/></td>
                 </tr>
                 <tr><td><input type="submit"/></td></tr>

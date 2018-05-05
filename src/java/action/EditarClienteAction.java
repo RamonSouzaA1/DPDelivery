@@ -27,23 +27,21 @@ public class EditarClienteAction implements Action {
             HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("txtId"));
         String nome = request.getParameter("txtNome");
-        String loradouro = request.getParameter("txtLogradouro");
-        
+        String logradouro = request.getParameter("txtLogradouro");
         int numero = Integer.parseInt(request.getParameter("txtNumero"));
-        
-        
         String bairro = request.getParameter("txtBairro");
         String cep = request.getParameter("txtCep");
         String telefone = request.getParameter("txtTelefone");
         String celular = request.getParameter("txtCelular");
-        if (nome.equals("") || loradouro.equals((""))) {
+        String doc = request.getParameter("txtDoc");
+        if (nome.equals("") || logradouro.equals((""))) {
             response.sendRedirect("index.jsp");
         } else {
             try {
                 ClienteDAO clienteDAO = new ClienteDAO();
                 Cliente cliente = new Cliente();
                 cliente = clienteDAO.obterCliente(id);
-                clienteDAO.editar(cliente, nome, loradouro, numero, bairro, cep, telefone, celular);
+                clienteDAO.editar(cliente, nome, logradouro, numero, bairro, cep, telefone, celular, doc);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
@@ -53,7 +51,4 @@ public class EditarClienteAction implements Action {
             }
         }
     }
-    
-    
-    
 }

@@ -12,19 +12,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.Cliente;
+import model.ClienteCNPJ;
 
 /**
  *
  * @author Ramon
  */
-public class ClienteDAO {
-    private static ClienteDAO instance = new ClienteDAO();
+public class ClienteCnpjDAO {
+    private static ClienteCnpjDAO instance = new ClienteCnpjDAO();
     
-    public ClienteDAO(){
+    public ClienteCnpjDAO(){
     }
     
-    public static ClienteDAO getInstance(){
+    public static ClienteCnpjDAO getInstance(){
         return instance;
     }
     
@@ -41,7 +41,7 @@ public class ClienteDAO {
     }
     
     
-    public void save(Cliente cliente) throws SQLException,
+    public void save(ClienteCNPJ cliente) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -49,9 +49,9 @@ public class ClienteDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             
-            st.execute("insert into cliente (nome, logradouro, numero, bairro, cep, telefone, celular, cpf)"
+            st.execute("insert into clientecnpj (nome, logradouro, numero, bairro, cep, telefone, celular, cnpj)"
                     + " values ('" + cliente.getNome() + "', '"+ cliente.getLogradouro() +"', "+ cliente.getNumero() +", '"+ cliente.getBairro() +"',"
-                    + " '"+ cliente.getCep() +"', '"+ cliente.getTelefone() +"', '"+ cliente.getCelular() +"', '"+ cliente.getCpf()+"')");
+                    + " '"+ cliente.getCep() +"', '"+ cliente.getTelefone() +"', '"+ cliente.getCelular() +"', '"+ cliente.getCnpj() +"')");
                         
         } catch (SQLException e) {
             throw e;
@@ -60,19 +60,19 @@ public class ClienteDAO {
         }
     }  
     
-    public List<Cliente> obterClientes() throws ClassNotFoundException, SQLException{
+    public List<ClienteCNPJ> obterClientes() throws ClassNotFoundException, SQLException{
         Connection conn = null;
         Statement st = null;
-        List<Cliente> clientes = new ArrayList<Cliente>();
+        List<ClienteCNPJ> clientes = new ArrayList<ClienteCNPJ>();
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();    
-            ResultSet rs = st.executeQuery("SELECT * FROM cliente");
+            ResultSet rs = st.executeQuery("SELECT * FROM clientecnpj");
             while (rs.next()){
-                Cliente cliente = new Cliente
+                ClienteCNPJ cliente = new ClienteCNPJ
                                     (rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
                                     rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"),rs.getString("celular"),
-                                    rs.getString("cpf"));
+                                    rs.getString("cnpj"));
                 clientes.add(cliente);
             }
         }catch (SQLException e) {
@@ -83,13 +83,13 @@ public class ClienteDAO {
         return clientes;
     }
     
-    public void delete(Cliente cliente) throws SQLException, ClassNotFoundException {
+    public void delete(ClienteCNPJ cliente) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("DELETE FROM cliente WHERE id = " + cliente.getId());
+            st.execute("DELETE FROM clientecnpj WHERE id = " + cliente.getId());
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -97,19 +97,19 @@ public class ClienteDAO {
         }
     }
     
-    public   Cliente obterCliente(int id) throws ClassNotFoundException, SQLException {
+    public ClienteCNPJ obterCliente(int id) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
-        Cliente cliente = null;
+        ClienteCNPJ cliente = null;
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from cliente where id = " + id);
+            ResultSet rs = st.executeQuery("select * from clientecnpj where id = " + id);
             rs.first();
-            cliente = new Cliente
+            cliente = new ClienteCNPJ
                           (rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
                             rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"),rs.getString("celular"),
-                            rs.getString("cpf"));
+                            rs.getString("cnpj"));
             
         }catch (SQLException e) {
             throw e;
@@ -119,13 +119,13 @@ public class ClienteDAO {
         return cliente;
     }
     
-    public void editar(Cliente cliente, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String doc) throws SQLException, ClassNotFoundException {
+    public void editar(ClienteCNPJ cliente, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String doc) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            String sql = "UPDATE cliente SET nome = ?, logradouro = ?, numero = ?, bairro = ?, cep = ?, telefone = ?, celular = ?, cpf = ? WHERE id = ?";
+            String sql = "UPDATE clientecnpj SET nome = ?, logradouro = ?, numero = ?, bairro = ?, cep = ?, telefone = ?, celular = ?, cnpj = ? WHERE id = ?";
             PreparedStatement comando = conn.prepareStatement(sql);
             comando.setString(1, nome);
             comando.setString(2, logradouro);

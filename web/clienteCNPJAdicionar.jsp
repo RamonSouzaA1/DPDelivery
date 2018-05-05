@@ -3,12 +3,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Cadastro de Clientes</title>
+        <title>Cadastro de Clientes CNPJ</title>
     </head>
     
     <body>
-        <h1>Cadastro de Clientes</h1>
-        <form action="FrontController?action=GravarCliente" method="post">
+        <h1>Cadastro de Clientes CNPJ</h1>
+        <form action="FrontController?action=GravarClienteCNPJ" method="post">
             <table>
                 <tr>
                     <td>Nome: </td>
@@ -39,7 +39,7 @@
                     <td><input type="text" name="txtCelular"/></td>
                 </tr>
                 <tr>
-                    <td>CPF: </td>
+                    <td>CNPJ: </td>
                     <td><input type="text" name="txtDoc"/></td>
                 </tr>
                 <tr><td><input type="submit"/></td></tr>

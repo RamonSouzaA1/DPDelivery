@@ -6,10 +6,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Consulta Cliente</title>
+        <title>Consulta Cliente CNPJ</title>
     </head>
     <body>
-        <h1>Consulta Clientes</h1>
+        <h1>Consulta Clientes CNPJ</h1>
         <table>
             <tr>
                 <td>id</td>
@@ -20,7 +20,7 @@
                 <td>cep</td>
                 <td>telefone</td>
                 <td>celular</td>
-                <td>CPF</td>
+                <td>CNPJ</td>
             </tr>
             <c:forEach items="${clientes}" var="cliente">
                 <tr>
@@ -32,7 +32,7 @@
                     <td><c:out value="${cliente.cep}"></c:out></td>
                     <td><c:out value="${cliente.telefone}"></c:out></td>
                     <td><c:out value="${cliente.celular}"></c:out></td>
-                    <td><c:out value="${cliente.cpf}"></c:out></td>
+                    <td><c:out value="${cliente.cnpj}"></c:out></td>
                     </tr>
             </c:forEach>
         </table>

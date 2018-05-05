@@ -42,6 +42,10 @@
                     <td>Celular: </td>
                     <td><input type="text" name="txtCelular"/></td>
                 </tr>
+                <tr>
+                    <td>CPF: </td>
+                    <td><input type="text" name="txtDoc"/></td>
+                </tr>
                 <tr><td><input type="submit"/></td></tr>
             </table>
         </form>

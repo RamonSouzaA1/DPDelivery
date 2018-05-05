@@ -15,6 +15,16 @@ package model;
  */
 public class Cliente extends BaseCliente implements Desconto{
     
+    private String cpf;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
     public Cliente() {
     }
 
@@ -22,7 +32,7 @@ public class Cliente extends BaseCliente implements Desconto{
         this.id = id;
     }
 
-    public Cliente(int id, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular) {
+    public Cliente(int id, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String cpf) {
         this.id = id;
         this.nome = nome;
         this.logradouro = logradouro;
@@ -31,10 +41,10 @@ public class Cliente extends BaseCliente implements Desconto{
         this.cep = cep;
         this.telefone = telefone;
         this.celular = celular;
-        this.desconto = this.obterDesconto();
+        this.cpf = cpf;
     }
 
-    public Cliente(String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular) {
+    public Cliente(String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String cpf) {
         this.id = id;
         this.nome = nome;
         this.logradouro = logradouro;
@@ -43,7 +53,7 @@ public class Cliente extends BaseCliente implements Desconto{
         this.cep = cep;
         this.telefone = telefone;
         this.celular = celular;
-        this.desconto = this.obterDesconto();
+        this.cpf = cpf;
     }
 
     @Override

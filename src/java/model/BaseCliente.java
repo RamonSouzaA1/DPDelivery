@@ -18,8 +18,6 @@ public abstract class BaseCliente {
     protected String cep;
     protected String telefone;
     protected String celular;
-    protected int desconto;
-
     
     public int getId() {
         return id;
