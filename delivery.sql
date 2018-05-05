@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 28-Abr-2018 às 03:23
--- Versão do servidor: 5.7.14
--- PHP Version: 5.6.25
+-- Host: 127.0.0.1:3306
+-- Generation Time: 05-Maio-2018 às 04:53
+-- Versão do servidor: 5.7.19
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,27 +28,59 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `cliente`
 --
 
-CREATE TABLE `cliente` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `cliente`;
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` text,
-  `loradouro` text,
+  `logradouro` text,
   `numero` int(11) DEFAULT NULL,
   `bairro` text,
   `cep` text,
   `celular` text,
-  `telefone` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `telefone` text,
+  `cpf` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nome`, `loradouro`, `numero`, `bairro`, `cep`, `celular`, `telefone`) VALUES
-(1, 'Marco', 'Avenida Rio Branco', 2001, 'Centro', '36050-110', '3298491997524', '3232379562'),
-(2, 'Bill Gates', 'Avenida Getulio Vargas', 105, 'Centro', '36050-100', '32984568485', '3232129604'),
-(3, 'Ada Lovelace', 'Rua Bernardo Mascarenhas', 1105, 'Mariano Procopio', '36110-001', '32988155474', '3232378545'),
-(4, 'Amanda Macedo', 'Rua Diomar Monteiro', 221, 'Grama', '36048-310', '32987155548', '3232222273'),
-(5, 'Victor Domingos Duque', 'Rua A', 24, 'Quintas', '36022-001', '32988514578', '3232219584');
+INSERT INTO `cliente` (`id`, `nome`, `logradouro`, `numero`, `bairro`, `cep`, `celular`, `telefone`, `cpf`) VALUES
+(1, 'Marco', 'Avenida Rio Branco', 2001, 'Centro', '36050-110', '3298491997524', '3232379562', ''),
+(2, 'Bill Gates', 'Avenida Getulio Vargas', 105, 'Centro', '36050-100', '32984568485', '3232129604', ''),
+(4, 'Amanda', 'Diomar Monteiro', 221, 'Grama', '36048310', '987157886', '3232222273', '12557882694'),
+(5, 'Victor Domingos Duque', 'Rua A', 24, 'Quintas', '36022-001', '32988514578', '3232219584', ''),
+(6, 'Hugo', 'Augusto vicente vieira', 45, 'Sao Tarcisio', '36052110', '987157886', '3232379037', '12554587790'),
+(7, 'Silvania', 'Augusto vicente vieira', 45, 'Sao Tarcisio', '36052110', '987157886', '3232379037', '09545782200');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientecnpj`
+--
+
+DROP TABLE IF EXISTS `clientecnpj`;
+CREATE TABLE IF NOT EXISTS `clientecnpj` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` text NOT NULL,
+  `logradouro` text NOT NULL,
+  `numero` int(11) NOT NULL,
+  `bairro` text NOT NULL,
+  `cep` text NOT NULL,
+  `celular` text NOT NULL,
+  `telefone` text NOT NULL,
+  `cnpj` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `clientecnpj`
+--
+
+INSERT INTO `clientecnpj` (`id`, `nome`, `logradouro`, `numero`, `bairro`, `cep`, `celular`, `telefone`, `cnpj`) VALUES
+(1, 'Nossa Loja Ltda', 'Rua Diomar Monteiro', 223, 'Muçunge Grama', '36048310', '987155548', '3232222273', '01548545000190'),
+(3, 'Bretas', 'Benjamn Constant', 354, 'Centro', '36030130', '', '3232126985', '789456123000125');
 
 -- --------------------------------------------------------
 
@@ -54,8 +88,9 @@ INSERT INTO `cliente` (`id`, `nome`, `loradouro`, `numero`, `bairro`, `cep`, `ce
 -- Estrutura da tabela `encomenda`
 --
 
-CREATE TABLE `encomenda` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `encomenda`;
+CREATE TABLE IF NOT EXISTS `encomenda` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` text,
   `peso` int(11) DEFAULT NULL,
   `id_cliente` int(11) DEFAULT NULL,
@@ -67,15 +102,19 @@ CREATE TABLE `encomenda` (
   `valor` double DEFAULT NULL,
   `situacao` text,
   `data_pedido` text,
-  `data_entrega` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `data_entrega` text,
+  PRIMARY KEY (`id`),
+  KEY `cliente_id_cliente_fk` (`id_cliente`),
+  KEY `entregador_id_entregador_fk` (`id_entregador`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `encomenda`
 --
 
 INSERT INTO `encomenda` (`id`, `descricao`, `peso`, `id_cliente`, `logradouro`, `numero`, `bairro`, `cep`, `id_entregador`, `valor`, `situacao`, `data_pedido`, `data_entrega`) VALUES
-(1, 'Malote de dinheiro e Cheques', 4, 1, 'Avenida Getulio Vargas', 1, 'Centro', '36050-100', 2, 100, 'Expedida', '28042018', '01052018');
+(1, 'Malote de dinheiro e Cheques', 4, 1, 'Avenida Getulio Vargas', 1, 'Centro', '36050-100', 2, 100, 'Expedida', '28042018', '01052018'),
+(3, 'Caixa', 1, 1, 'Augusto vicente vieira', 45, 'Sao Tarcisio', '36052110', 1, 11.5, 'Expedida', '05052018', '05052018');
 
 -- --------------------------------------------------------
 
@@ -83,12 +122,15 @@ INSERT INTO `encomenda` (`id`, `descricao`, `peso`, `id_cliente`, `logradouro`, 
 -- Estrutura da tabela `entregador`
 --
 
-CREATE TABLE `entregador` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `entregador`;
+CREATE TABLE IF NOT EXISTS `entregador` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` text,
   `situacao` text,
-  `id_veiculo` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `id_veiculo` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_veiculo` (`id_veiculo`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `entregador`
@@ -98,7 +140,7 @@ INSERT INTO `entregador` (`id`, `nome`, `situacao`, `id_veiculo`) VALUES
 (1, 'Jorginho', 'null', 1),
 (2, 'Fernando', 'null', 2),
 (3, 'Ramon', 'null', 3),
-(4, 'Kaio Costa', 'Folga', 5);
+(4, 'Kaio', 'Disponível', 4);
 
 -- --------------------------------------------------------
 
@@ -106,80 +148,32 @@ INSERT INTO `entregador` (`id`, `nome`, `situacao`, `id_veiculo`) VALUES
 -- Estrutura da tabela `veiculo`
 --
 
-CREATE TABLE `veiculo` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `veiculo`;
+CREATE TABLE IF NOT EXISTS `veiculo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `placa` text,
   `marca` text,
   `modelo` text,
-  `situacao` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `situacao` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `veiculo`
 --
 
 INSERT INTO `veiculo` (`id`, `placa`, `marca`, `modelo`, `situacao`) VALUES
-(1, 'PVV7584', 'Honda', 'CG Titan 150cc', 'null'),
-(2, 'PYE5678', 'Yamaha', 'YBR 150cc', 'null'),
+(1, 'PVV9999', 'Honda', 'CG Titan 150', 'Disponível'),
+(2, 'xxx1234', 'BMW', 'BMW', 'Oficina'),
 (3, 'PYI4587', 'Honda', 'Start 160cc', 'null'),
 (4, 'GUM7119', 'Fiat', 'Palio 1.0', 'null'),
-(5, 'PXR2199', 'Honda', 'XTZ 300cc', 'Disponível');
+(5, 'PXR2199', 'Honda', 'XTZ 300cc', 'Disponível'),
+(6, '7', '7', '7', 'Em serviço'),
+(7, 'dd', 'dd', 'dd', 'Veículo Estado Disponível'),
+(8, 'xx', 'xx', 'xx', 'Veículo Estado desuso'),
+(9, 'aa', 'aa', 'aa', 'Veículo Estado desuso');
+COMMIT;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `encomenda`
---
-ALTER TABLE `encomenda`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cliente_id_cliente_fk` (`id_cliente`),
-  ADD KEY `entregador_id_entregador_fk` (`id_entregador`);
-
---
--- Indexes for table `entregador`
---
-ALTER TABLE `entregador`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_veiculo` (`id_veiculo`);
-
---
--- Indexes for table `veiculo`
---
-ALTER TABLE `veiculo`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `encomenda`
---
-ALTER TABLE `encomenda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `entregador`
---
-ALTER TABLE `entregador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `veiculo`
---
-ALTER TABLE `veiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
