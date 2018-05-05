@@ -13,7 +13,7 @@ package model;
  * Todos os getters e setters implementados
  * 
  */
-public class Cliente extends BaseCliente implements Desconto{
+public class Cliente extends BaseCliente implements Frete{
     
     private String cpf;
 
@@ -60,5 +60,11 @@ public class Cliente extends BaseCliente implements Desconto{
     public int obterDesconto() {
         return 0;
     }
-
+    
+    @Override
+    public double obterCalculoFrete(int peso) {
+        double valor = 10.0 + (1.5 * peso);
+        
+        return valor + (valor*(this.obterDesconto()/100));
+    }
 }

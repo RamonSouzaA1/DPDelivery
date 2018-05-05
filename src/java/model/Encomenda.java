@@ -35,7 +35,7 @@ public class Encomenda extends Situacao{
     }
 
     public Encomenda(int id, String descricao, int peso, int id_cliente, String logradouro, int numero, double valor, String bairro, String cep, int id_entregador, String situacao, String data_pedido, String data_entrega) {
-         this.id = id;
+        this.id = id;
         this.descricao = descricao;
         this.peso = peso;
         this.id_cliente = id_cliente;
@@ -122,8 +122,6 @@ public class Encomenda extends Situacao{
         this.cep = cep;
     }
 
-    
-
     public int getId() {
         return id;
     }
@@ -184,4 +182,5 @@ public class Encomenda extends Situacao{
     public String getDados() {
         return "A encomenda com Id: " + this.getId() + " está " + this.getSituacao() + ".";
     }
+
 }

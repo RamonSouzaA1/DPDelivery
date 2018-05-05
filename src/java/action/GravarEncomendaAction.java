@@ -8,7 +8,9 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
+import model.ClienteCNPJ;
 import model.Encomenda;
+import persistence.ClienteCnpjDAO;
 import persistence.ClienteDAO;
 import persistence.EncomendaDAO;
 
@@ -22,28 +24,36 @@ public class GravarEncomendaAction implements Action {
             HttpServletResponse response) throws IOException{
         String descricao = request.getParameter("txtDescricao");
         int peso = Integer.parseInt(request.getParameter("txtPeso"));
-        //String peso = request.getParameter("txtPeso");
-        //chave
+        String tipoCliente = request.getParameter("txtTipoCliente");
         int id_cliente = Integer.parseInt(request.getParameter("txtId_cliente"));
         String logradouro = request.getParameter("txtLogradouro");
         int numero = Integer.parseInt(request.getParameter("txtNumero"));
-        double valor = Double.parseDouble(request.getParameter("txtValor"));
         String bairro = request.getParameter("txtBairro");
         String cep = request.getParameter("txtCep");
-        
         int id_entregador = Integer.parseInt(request.getParameter("txtId_entregador"));
-        //------------------------------------------------------------------//
         String data_pedido = request.getParameter("txtData_pedido");
         String data_entrega = request.getParameter("txtData_entrega");
+        double valor;
         
         if(descricao.equals("")){
             response.sendRedirect("index.jsp");
         } else{
             try{
-                ClienteDAO clienteDAO = new ClienteDAO();
-                Cliente cliente = new Cliente();
-                cliente = clienteDAO.obterCliente(id_cliente);
-                valor = valor - (valor * cliente.obterDesconto());
+                if(tipoCliente.equals("CPF"))
+                {
+                    ClienteDAO clienteDAO = new ClienteDAO();
+                    Cliente cliente = new Cliente();
+                    cliente = clienteDAO.obterCliente(id_cliente);
+                    valor = cliente.obterCalculoFrete(peso);
+                } else 
+                {
+                    ClienteCnpjDAO clienteDAO = new ClienteCnpjDAO();
+                    ClienteCNPJ cliente = new ClienteCNPJ();
+                    cliente = clienteDAO.obterCliente(id_cliente);
+                    valor = cliente.obterCalculoFrete(peso);
+                }
+                
+                //inicializa encomenda e calcula o valor <Strategy>
                 Encomenda encomenda = new Encomenda(descricao, peso, id_cliente, logradouro, numero, valor, bairro,
                         cep, id_entregador, data_pedido, data_entrega);
                 

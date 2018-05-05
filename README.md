@@ -19,7 +19,7 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 
 8 - State ✓ (Obs: implementado só na classe Veiculo porque as outras estao usando o Factory Method.)
 
-9 - Strategy
+9 - Strategy ✓
 
 10 - Chain Of Responsability
 

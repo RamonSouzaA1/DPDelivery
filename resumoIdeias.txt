@@ -1,0 +1,7 @@
+Strategy
+
+- Criei uma interface Frete com os metodos obterDesconto() e obterCalculoFrete(int peso).
+- Criei uma classe abstrata BaseCliente para poder abrigar os metodos e atributos em comum de clientes CPF e CNPJ.
+- Então, o calculo do frete é realizado pelo tipo de cliente, na classe do pacote model.
+- Ao gravar a encomenda, verifica se o cliente é CPF ou CNPJ, a partir disso ele instancia o cliente correto e faz o calculo
+	para poder criar a encomenda com o valor obtido do metodo obterCalculoFrete do cliente correto.

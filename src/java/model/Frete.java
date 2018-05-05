@@ -9,6 +9,7 @@ package model;
  *
  * @author Ramon
  */
-public interface Desconto {
+public interface Frete {
     public int obterDesconto();
+    public double obterCalculoFrete(int peso);
 }

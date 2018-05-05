@@ -9,7 +9,7 @@ package model;
  *
  * @author Ramon
  */
-public class ClienteCNPJ extends BaseCliente implements Desconto{
+public class ClienteCNPJ extends BaseCliente implements Frete{
     
     private String cnpj;
 
@@ -54,6 +54,13 @@ public class ClienteCNPJ extends BaseCliente implements Desconto{
     @Override
     public int obterDesconto() {
         return 20;
+    }
+
+    @Override
+    public double obterCalculoFrete(int peso) {
+        double valor = 7.50 + (3.00 * peso);
+        
+        return valor + (valor*(this.obterDesconto()/100));
     }
 
 }

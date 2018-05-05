@@ -19,6 +19,14 @@
                     <td><input type="text" name="txtPeso"/></td>
                 </tr>
                 <tr>
+                    <td>Tipo de Cliente: </td>
+                    <td><select name="txtTipoCliente">
+                            <option value="CPF">CPF</option>
+                            <option value="CNPJ">CNPJ</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td>Id Cliente: </td>
                     <td><input type="text" name="txtId_cliente"/></td>
                 </tr>
@@ -37,10 +45,6 @@
                 <tr>
                     <td>Cep: </td>
                     <td><input type="text" name="txtCep"/></td>
-                </tr>
-                <tr>
-                    <td>Valor: </td>
-                    <td><input type="text" name="txtValor"/></td>
                 </tr>
                 <tr>
                     <td>Id Entregador: </td>
