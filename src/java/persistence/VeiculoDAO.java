@@ -125,6 +125,7 @@ public class VeiculoDAO {
             st = conn.createStatement();
             String sql = "UPDATE veiculo SET placa = ?, marca = ?, modelo = ?,situacao = ?  WHERE id = ?";
             PreparedStatement comando = conn.prepareStatement(sql);
+            situacao = veiculo.mudarEstado(veiculo, situacao); // bloquear mudança de estado indevida
             comando.setString(1, placa);
             comando.setString(2, marca);
             comando.setString(3, modelo);

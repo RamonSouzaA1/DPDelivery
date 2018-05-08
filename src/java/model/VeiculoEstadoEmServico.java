@@ -30,7 +30,7 @@ public class VeiculoEstadoEmServico implements VeiculoEstado{
     @Override
     public String oficina(Veiculo v) {
         
-        return "Veiculo nãopode ir para oficina.";
+        return "Veiculo não pode ir para oficina.";
     }
 
     @Override

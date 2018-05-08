@@ -70,18 +70,18 @@ public class Veiculo extends Observable{
         switch(situacao)
         {
             case "Disponivel":
-                this.estado = new VeiculoEstadoDisponivel();
+                this.disponivel(this);
                 setChanged();
                 notifyObservers();
                 break;
             case "Em desuso":
-                this.estado = new VeiculoEstadoEmDesuso();
+                this.emDesuso(this);
                 break;
             case "Em serviço":
-                this.estado = new VeiculoEstadoEmServico();
+                this.emServico(this);
                 break;
             case "Oficina":
-                this.estado = new VeiculoEstadoOficina();
+                this.oficina(this);
                 break;
         }
     }
@@ -135,5 +135,42 @@ public class Veiculo extends Observable{
     
     public String getEstado() {
         return estado.getEstado();
+    }
+    
+    public String disponivel(Veiculo v){
+        return estado.disponivel(this);
+    }
+    
+    public String emDesuso(Veiculo v){
+        return estado.emDesuso(this);
+    }
+    
+    public String emServico(Veiculo v){
+        return estado.emServico(this);
+    }
+    
+    public String oficina(Veiculo v){
+        return estado.oficina(this);
+    }
+    
+    public String mudarEstado(Veiculo v, String estado){
+        switch(estado)
+        {
+            case "Disponivel":
+                this.disponivel(v);
+                setChanged();
+                notifyObservers();
+                break;
+            case "Em desuso":
+                this.emDesuso(v);
+                break;
+            case "Em serviço":
+                this.emServico(v);
+                break;
+            case "Oficina":
+                this.oficina(v);
+                break;
+        }
+        return v.getEstado();
     }
 }
