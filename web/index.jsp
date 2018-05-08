@@ -8,19 +8,74 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <title>DP Delivery</title>
     </head>
     <body>
-        <h1>DP Delivery</h1>
-        <button onclick="window.location.href='clienteMenu.jsp'">Cliente CPF</button>
-        <button onclick="window.location.href='clienteCNPJMenu.jsp'">Cliente CNPJ</button>
-        <button onclick="window.location.href='entregadorMenu.jsp'">Entregador</button>
-        <button onclick="window.location.href='veiculoMenu.jsp'">Veículo</button>
-        <button onclick="window.location.href='encomendaMenu.jsp'">Encomenda</button>
-                
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container-fluid">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#">DPDelivery</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+           <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.jsp">Início</a></li>
+           </ul>
+          </div>
+         </div>
+        </nav>
+        <div id="main" class="container-fluid">
+         <h1 style="text-align: center" class="page-header"><strong>Sistema DPDelivery</strong></h1>
+        
+        
+        <div class="row" style="text-align: center">
+        
+        <h2 style="text-align: center">Cadastro</h1>
+        
+        <div class="col-md-12">      
+        <form action="FrontController?action=LerCliente" method="post">
+            <button class="btn btn-success">Clientes</button>
+        </form>
+
+        <form action="FrontController?action=LerClienteCNPJ" method="post">
+            <button class="btn btn-success">Clientes CNPJ</button>
+        </form>
+
+        <form action="FrontController?action=LerEntregador" method="post">
+            <button class="btn btn-success">Entregadores</button>
+        </form>
+
+         <form action="FrontController?action=LerVeiculo" method="post">
+            <button class="btn btn-success">Veiculos</button>
+        </form>
+        
+         <form action="FrontController?action=LerEncomenda" method="post">
+            <button class="btn btn-success">Encomendas</button>
+        </form>
+        </div>      
+    </div>
+        <div class="row" style="text-align: center">
+        <h2 style="text-align: center">Verificação</h2>
+        <form action="FrontController?action=LerFuncionarioCozinha" method="post">
+            <button class="btn btn-danger">Funções Funcionários</button>
+        </form>
+            
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </div>
+  </div>
+</div>
+
     </body>
 </html>

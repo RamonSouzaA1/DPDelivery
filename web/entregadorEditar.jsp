@@ -2,44 +2,74 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <title>Editar Entregador</title>
     </head>
 
     <body>
-        <h1>Editar Entregador</h1>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container-fluid">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#">DPDelivery</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+           <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.jsp">Início</a></li>
+           </ul>
+          </div>
+         </div>
+        </nav>
+        <div id="main" class="container-fluid">
+        <h3 class="page-header">Edição de Entregador</h3>
+        
         <form action="FrontController?action=EditarEntregador" method="post">
-            <table>
-                <tr>
-                    <td>Id: </td>
-                    <td><input type="text" name="txtId"/></td>
-                </tr>
-                <tr>
-                    <td>Nome: </td>
-                    <td><input type="text" name="txtNome"/></td>
-                </tr>
-                <tr>
-                    <td>Id do Veículo: </td>
-                    <td><input type="text" name="txtId_veiculo"/></td>
-                </tr>
-                <tr>
-                    <td>Situacao: </td>
-                    <td>
-                        <select name="txtSituacao">
+            <div class="row">
+             <div class="form-group col-md-6">
+               <label for="campo1">ID Entregador</label>
+               <input type="text" class="form-control" id="campo1" name="txtId"/>
+             </div>   
+                
+             <div class="form-group col-md-6">
+               <label for="campo2">Nome</label>
+               <input type="text" class="form-control" id="campo2" name="txtNome"/>
+             </div>
+
+             <div class="form-group col-md-6">
+               <label for="campo3">Situação</label>
+               <select class="form-control" id="campo3" name="txtSituacao">
                             <option value="Disponível">Disponível</option>
                             <option value="Em serviço">Em serviço</option>
                             <option value="Folga">Folga</option>
                             <option value="Demitido">Demitido</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="submit"/></td>
-                </tr>
-            </table>
+             </div>
+
+             <div class="form-group col-md-6">
+               <label for="campo4">Id Veículo</label>
+               <input type="text" class="form-control" id="campo4" name="txtId_veiculo"/>
+             </div>
+
+            </div>     
+
+            <hr/>
+              <div id="actions" class="row">
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+              </div>
         </form>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
