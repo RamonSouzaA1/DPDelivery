@@ -5,22 +5,46 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <title>Consulta Cliente</title>
     </head>
     <body>
-        <h1>Consulta Clientes</h1>
-        <table>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container-fluid">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#">DPDelivery</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+           <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.jsp">Início</a></li>
+           </ul>
+          </div>
+         </div>
+        </nav>
+        <div id="main" class="container-fluid">
+         <h3 class="page-header">Consulta de Clientes</h3>
+        <div class="table-responsive"> 
+        <table class="table table-bordered table-hover">
             <tr>
-                <td>id</td>
-                <td>nome</td>
-                <td>logradouro</td>
-                <td>numero</td>
-                <td>bairro</td>
-                <td>cep</td>
-                <td>telefone</td>
-                <td>celular</td>
-                <td>CPF</td>
+                <td><strong>id</strong></td>
+                <td><strong>nome</strong></td>
+                <td><strong>logradouro</strong></td>
+                <td><strong>numero</strong></td>
+                <td><strong>bairro</strong></td>
+                <td><strong>cep</strong></td>
+                <td><strong>telefone</strong></td>
+                <td><strong>celular</strong></td>
+                <td><strong>CPF</strong></td>
             </tr>
             <c:forEach items="${clientes}" var="cliente">
                 <tr>
@@ -36,8 +60,17 @@
                     </tr>
             </c:forEach>
         </table>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    </div>
+    <div id="actions" class="row">
+     <div class="col-md-12">
+      <a href="clienteAdicionar.jsp" class="btn btn-primary">Adicionar</a>
+      <a href="clienteEditar.jsp" class="btn btn-success">Editar</a>
+      <a href="clienteApagar.jsp" class="btn btn-danger">Apagar</a>
+      <a href="index.jsp" class="btn btn-warning">Fechar</a>
+     </div>
+    </div>
+    </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -2,82 +2,124 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <title>Editar Encomenda</title>
     </head>
 
     <body>
-        <h1>Editar Encomenda</h1>
-        <form action="FrontController?action=EditarEncomenda" method="post">
-            <table>
-                <tr>
-                    <td>Id: </td>
-                    <td><input type="text" name="txtId"/></td>
-                </tr>
-                <tr>
-                    <td>Descrição:</td>
-                    <td><input type="text" name="txtDescricao"/></td>
-                </tr>
-                <tr>
-                    <td>Peso: </td>
-                    <td><input type="text" name="txtPeso"/></td>
-                </tr>
-                <tr>
-                    <td>Tipo de Cliente: </td>
-                    <td><select name="txtTipoCliente">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">DPDelivery</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.jsp">Início</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="main" class="container-fluid">
+            <h3 class="page-header">Edição de Encomenda</h3>
+
+            <form action="FrontController?action=EditarEncomenda" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="campo1">Id</label>
+                        <input type="text" class="form-control" id="campo1" name="txtId"/>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="campo2">Descrição</label>
+                        <input type="text" class="form-control" id="campo1" name="txtDescricao"/>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="campo3">Peso</label>
+                        <input type="text" class="form-control" id="campo2" name="txtPeso"/>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="campo4">Tipo de Cliente</label>
+                        <select class="form-control" id="campo3" name="txtTipoCliente">
                             <option value="CPF">CPF</option>
                             <option value="CNPJ">CNPJ</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Id Cliente: </td>
-                    <td><input type="text" name="txtId_cliente"/></td>
-                </tr>
-                <tr>
-                    <td>Logradouro: </td>
-                    <td><input type="text" name="txtLogradouro"/></td>
-                </tr>
-                <tr>
-                    <td>Número: </td>
-                    <td><input type="text" name="txtNumero"/></td>
-                </tr>
-                <tr>
-                    <td>Bairro: </td>
-                    <td><input type="text" name="txtBairro"/></td>
-                </tr>
-                <tr>
-                    <td>Cep: </td>
-                    <td><input type="text" name="txtCep"/></td>
-                </tr>
-                <tr>
-                    <td>Id Entregador: </td>
-                    <td><input type="text" name="txtId_entregador"/></td>
-                </tr>
-                <tr>
-                    <td>Data Pedido: </td>
-                    <td><input type="text" name="txtData_pedido"/></td>
-                </tr>
-                <tr>
-                    <td>Data Entrega: </td>
-                    <td><input type="text" name="txtData_entrega"/></td>
-                </tr>
-                <tr>
-                    <td>Situacao: </td>
-                    <td><select name="txtSituacao">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="campo5">Id Cliente: </label>
+                        <input type="text" class="form-control" id="campo4" name="txtId_cliente"/>
+                    </div>  
+
+                    <div class="form-group col-md-6">
+                        <label for="campo6">Logradouro</label>
+                        <input type="text" class="form-control" id="campo5" name="txtLogradouro"/>
+                    </div> 
+
+                    <div class="form-group col-md-4">
+                        <label for="campo7">Número</label>
+                        <input type="text" class="form-control" id="campo6" name="txtNumero"/>
+                    </div> 
+
+                    <div class="form-group col-md-4">
+                        <label for="campo8">Bairro</label>
+                        <input type="text" class="form-control" id="campo7" name="txtBairro"/>
+                    </div>    
+
+                    <div class="form-group col-md-4">
+                        <label for="campo9">Cep</label>
+                        <input type="text" class="form-control" id="campo8" name="txtCep"/>
+                    </div> 
+
+                    <div class="form-group col-md-4">
+                        <label for="campo10">Id Entregador: </label>
+                        <input type="text" class="form-control" id="campo9" name="txtId_entregador"/>
+                    </div> 
+
+                    <div class="form-group col-md-6">
+                        <label for="campo11">Data Pedido</label>
+                        <input type="text" class="form-control" id="campo10" name="txtData_pedido"/>
+                    </div> 
+
+                    <div class="form-group col-md-6">
+                        <label for="campo12">Data Entrega</label>
+                        <input type="text" class="form-control" id="campo11" name="txtData_entrega"/>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="campo13">Situacao</label> 
+                        <select class="form-control" id="campo13"  name="txtSituacao">
                             <option value="Expedida">Expedida</option>
                             <option value="Em trânsito">Em trânsito</option>
                             <option value="Pendente">Pendente</option>
                             <option value="Devolvida">Devolvida</option>
                             <option value="Entregue">Entregue</option>
                         </select>
-                    </td>
-                </tr>
-                <tr><td><input type="submit"/></td></tr>
-            </table>
-        </form>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+                    </div>
+
+                </div>     
+
+                <hr/>
+                <div id="actions" class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

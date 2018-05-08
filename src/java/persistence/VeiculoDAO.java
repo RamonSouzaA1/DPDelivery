@@ -19,15 +19,16 @@ import model.Veiculo;
  * @author Ramon
  */
 public class VeiculoDAO {
+
     private static VeiculoDAO instance = new VeiculoDAO();
-    
-    public VeiculoDAO(){
+
+    public VeiculoDAO() {
     }
-    
-    public static VeiculoDAO getInstance(){
+
+    public static VeiculoDAO getInstance() {
         return instance;
     }
-    
+
     private void closeResources(Connection conn, Statement st) {
         try {
             if (st != null) {
@@ -39,7 +40,7 @@ public class VeiculoDAO {
         } catch (SQLException e) {
         }
     }
-    
+
     public void save(Veiculo veiculo) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
@@ -48,37 +49,36 @@ public class VeiculoDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             st.execute("INSERT INTO veiculo (id, placa, marca, modelo, situacao)"
-                    + " VALUES ('" + veiculo.getId() + "', '" + veiculo.getPlaca() + "', '" + veiculo.getMarca() + "', '" 
-                    + veiculo.getModelo() + "', '" + veiculo.estado.getEstado() +"')");
-        }   catch (SQLException e) {
+                    + " VALUES ('" + veiculo.getId() + "', '" + veiculo.getPlaca() + "', '" + veiculo.getMarca() + "', '"
+                    + veiculo.getModelo() + "', '" + veiculo.estado.getEstado() + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
-    public List<Veiculo> obterVeiculos() throws ClassNotFoundException, SQLException{
+
+    public List<Veiculo> obterVeiculos() throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
         List<Veiculo> veiculos = new ArrayList<Veiculo>();
-        try{
+        try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM veiculo");
-            while (rs.next()){
-                Veiculo veiculo = new Veiculo
-                                    (rs.getInt("id"), rs.getString("placa"), 
-                                    rs.getString("marca"),rs.getString("modelo"), rs.getString("situacao"));
+            while (rs.next()) {
+                Veiculo veiculo = new Veiculo(rs.getInt("id"), rs.getString("placa"),
+                        rs.getString("marca"), rs.getString("modelo"), rs.getString("situacao"));
                 veiculos.add(veiculo);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return veiculos;
     }
-    
+
     public void delete(Veiculo veiculo) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -92,32 +92,31 @@ public class VeiculoDAO {
             closeResources(conn, st);
         }
     }
-    
-    public   Veiculo obterVeiculo(int id) throws ClassNotFoundException, SQLException {
+
+    public Veiculo obterVeiculo(int id) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
         Veiculo veiculo = null;
-        try{
+        try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from veiculo where id = " + id);
             rs.first();
-            veiculo = new Veiculo
-                          (rs.getInt("id"),
-                           rs.getString("placa"),
-                           rs.getString("marca"),
-                           rs.getString("modelo"),       
-                           rs.getString("situacao"));
-            
-        }catch (SQLException e) {
+            veiculo = new Veiculo(rs.getInt("id"),
+                    rs.getString("placa"),
+                    rs.getString("marca"),
+                    rs.getString("modelo"),
+                    rs.getString("situacao"));
+
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return veiculo;
     }
-    
-    public  void editar(Veiculo veiculo, String placa, String marca, String modelo, String situacao) throws SQLException, ClassNotFoundException {
+
+    public void editar(Veiculo veiculo, String placa, String marca, String modelo, String situacao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
@@ -138,6 +137,5 @@ public class VeiculoDAO {
             closeResources(conn, st);
         }
     }
-    
-    
+
 }

@@ -12,12 +12,14 @@ import persistence.VeiculoDAO;
 /**
  *
  * @author Ramon
- * 
- * Construtor vazio, somente com id, com todos os atributos mas com situacao = Disponivel (padrao) e com todos os atributos.
- * Todos os getters e setters implementados
- * 
+ *
+ * Construtor vazio, somente com id, com todos os atributos mas com situacao =
+ * Disponivel (padrao) e com todos os atributos. Todos os getters e setters
+ * implementados
+ *
  */
-public class Veiculo extends Observable{
+public class Veiculo extends Observable {
+
     private int id;
     private String placa;
     private String marca;
@@ -26,8 +28,6 @@ public class Veiculo extends Observable{
 
     public Veiculo() {
     }
-    
-    
 
     public Veiculo(int id) {
         this.id = id;
@@ -40,15 +40,14 @@ public class Veiculo extends Observable{
         this.modelo = modelo;
         this.estado = new VeiculoEstadoDisponivel();
     }
-    
+
     public Veiculo(int id, String placa, String marca, String modelo, String situacao) {
         this.id = id;
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
-        switch(situacao)
-        {
-            case "Disponivel":
+        switch (situacao) {
+            case "Disponível":
                 this.estado = new VeiculoEstadoDisponivel();
                 break;
             case "Em desuso":
@@ -67,9 +66,8 @@ public class Veiculo extends Observable{
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
-        switch(situacao)
-        {
-            case "Disponivel":
+        switch (situacao) {
+            case "Disponível":
                 this.disponivel(this);
                 setChanged();
                 notifyObservers();
@@ -126,37 +124,36 @@ public class Veiculo extends Observable{
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-    
-    public void setEstado(VeiculoEstado estado){
-        
+
+    public void setEstado(VeiculoEstado estado) {
+
         this.estado = estado;
-        
+
     }
-    
+
     public String getEstado() {
         return estado.getEstado();
     }
-    
-    public String disponivel(Veiculo v){
+
+    public String disponivel(Veiculo v) {
         return estado.disponivel(this);
     }
-    
-    public String emDesuso(Veiculo v){
+
+    public String emDesuso(Veiculo v) {
         return estado.emDesuso(this);
     }
-    
-    public String emServico(Veiculo v){
+
+    public String emServico(Veiculo v) {
         return estado.emServico(this);
     }
-    
-    public String oficina(Veiculo v){
+
+    public String oficina(Veiculo v) {
         return estado.oficina(this);
     }
-    
-    public String mudarEstado(Veiculo v, String estado){
-        switch(estado)
-        {
-            case "Disponivel":
+
+    public String mudarEstado(Veiculo v, String estado) {
+        switch (estado) {
+            case "Disponível":
                 this.disponivel(v);
                 setChanged();
                 notifyObservers();
