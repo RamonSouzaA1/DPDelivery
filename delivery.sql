@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 05-Maio-2018 às 04:53
+-- Generation Time: 08-Maio-2018 às 03:13
 -- Versão do servidor: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `telefone` text,
   `cpf` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cliente`
@@ -52,7 +52,8 @@ INSERT INTO `cliente` (`id`, `nome`, `logradouro`, `numero`, `bairro`, `cep`, `c
 (4, 'Amanda', 'Diomar Monteiro', 221, 'Grama', '36048310', '987157886', '3232222273', '12557882694'),
 (5, 'Victor Domingos Duque', 'Rua A', 24, 'Quintas', '36022-001', '32988514578', '3232219584', ''),
 (6, 'Hugo', 'Augusto vicente vieira', 45, 'Sao Tarcisio', '36052110', '987157886', '3232379037', '12554587790'),
-(7, 'Silvania', 'Augusto vicente vieira', 45, 'Sao Tarcisio', '36052110', '987157886', '3232379037', '09545782200');
+(7, 'Silvania', 'Rua Augusto Vicente Vieira', 45, 'São Tarcísio', '36052110', '3298460083', '3232379037', '09515478595'),
+(8, 'Arielson', 'Rua Bernardo Mascarenhas', 251, 'Fábrica', '360', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -72,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `clientecnpj` (
   `telefone` text NOT NULL,
   `cnpj` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `clientecnpj`
@@ -80,7 +81,8 @@ CREATE TABLE IF NOT EXISTS `clientecnpj` (
 
 INSERT INTO `clientecnpj` (`id`, `nome`, `logradouro`, `numero`, `bairro`, `cep`, `celular`, `telefone`, `cnpj`) VALUES
 (1, 'Nossa Loja Ltda', 'Rua Diomar Monteiro', 223, 'Muçunge Grama', '36048310', '987155548', '3232222273', '01548545000190'),
-(3, 'Bretas', 'Benjamn Constant', 354, 'Centro', '36030130', '', '3232126985', '789456123000125');
+(4, 'Bahamas', 'Avenida Rio Branco', 350, 'Manoel Honorio', '36048310', '987155548', '3232126985', '01548545000175'),
+(3, 'Hiper Bretas', 'Rua Benjamn Constant', 225, 'Centro', '36030130', '32984845564', '3232378587', '01548545000190');
 
 -- --------------------------------------------------------
 
@@ -103,18 +105,20 @@ CREATE TABLE IF NOT EXISTS `encomenda` (
   `situacao` text,
   `data_pedido` text,
   `data_entrega` text,
+  `memento` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cliente_id_cliente_fk` (`id_cliente`),
   KEY `entregador_id_entregador_fk` (`id_entregador`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `encomenda`
 --
 
-INSERT INTO `encomenda` (`id`, `descricao`, `peso`, `id_cliente`, `logradouro`, `numero`, `bairro`, `cep`, `id_entregador`, `valor`, `situacao`, `data_pedido`, `data_entrega`) VALUES
-(1, 'Malote de dinheiro e Cheques', 4, 1, 'Avenida Getulio Vargas', 1, 'Centro', '36050-100', 2, 100, 'Expedida', '28042018', '01052018'),
-(3, 'Caixa', 1, 1, 'Augusto vicente vieira', 45, 'Sao Tarcisio', '36052110', 1, 11.5, 'Expedida', '05052018', '05052018');
+INSERT INTO `encomenda` (`id`, `descricao`, `peso`, `id_cliente`, `logradouro`, `numero`, `bairro`, `cep`, `id_entregador`, `valor`, `situacao`, `data_pedido`, `data_entrega`, `memento`) VALUES
+(1, 'Malote de dinheiro e Cheques', 4, 1, 'Avenida Getulio Vargas', 1, 'Centro', '36050-100', 2, 100, 'Expedida', '28042018', '01052018', ''),
+(3, 'Caixa', 3, 2, 'Avenida Rio Branco', 2, 'Centro', '36030130', 1, 14.5, 'Em trânsito', '05052018', '06052018', '-> Em trânsito -> Em trânsito'),
+(4, 'Marmitex', 1, 1, 'Rua Diomar Monteiro', 1, 'Grama', '36052110', 1, 11.5, 'Expedida', '05052018', '06052018', 'Expedida -> Em trânsito -> Expedida');
 
 -- --------------------------------------------------------
 
@@ -130,17 +134,19 @@ CREATE TABLE IF NOT EXISTS `entregador` (
   `id_veiculo` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_veiculo` (`id_veiculo`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `entregador`
 --
 
 INSERT INTO `entregador` (`id`, `nome`, `situacao`, `id_veiculo`) VALUES
-(1, 'Jorginho', 'null', 1),
-(2, 'Fernando', 'null', 2),
-(3, 'Ramon', 'null', 3),
-(4, 'Kaio', 'Disponível', 4);
+(1, 'Jorginho', 'Disponível', 1),
+(2, 'Fernando David', 'Disponível', 2),
+(3, 'Ramon', 'Disponível', 7),
+(4, 'Kaio', 'Disponível', 4),
+(5, 'Rafael', 'Disponível', 1),
+(6, 'Arielson', 'Em serviço', 8);
 
 -- --------------------------------------------------------
 
@@ -168,10 +174,10 @@ INSERT INTO `veiculo` (`id`, `placa`, `marca`, `modelo`, `situacao`) VALUES
 (3, 'PYI4587', 'Honda', 'Start 160cc', 'null'),
 (4, 'GUM7119', 'Fiat', 'Palio 1.0', 'null'),
 (5, 'PXR2199', 'Honda', 'XTZ 300cc', 'Disponível'),
-(6, '7', '7', '7', 'Em serviço'),
-(7, 'dd', 'dd', 'dd', 'Veículo Estado Disponível'),
-(8, 'xx', 'xx', 'xx', 'Veículo Estado desuso'),
-(9, 'aa', 'aa', 'aa', 'Veículo Estado desuso');
+(6, 'HLT7119', 'Fiat', 'Palio', 'Oficina'),
+(7, 'HLT7119', 'FIAT', 'Siena', 'Em serviço'),
+(8, 'XYZ1234', 'Yamaha', 'YBR', 'Em serviço'),
+(9, 'aa', 'aa', 'aa', 'Disponível');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
