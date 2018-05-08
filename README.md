@@ -21,13 +21,10 @@ Para mantermos um controle sobre o que já foi implementado, coloque isso ✓ na
 
 9 - Strategy ✓
 
-10 - Chain Of Responsability
+10 - Chain Of Responsability 
 
-11 - Memento ✓ (obs: implementado na classe encomenda.)
+11 - Memento ✓ (obs: implementado na classe encomenda, mostra o acompanhamento mas nao desfaz ainda)
 
 12 - Observer
 
 *Todas as classes estão consultando, adicionando e editando.
-
-Melhorias a serem implementadas: 
-* Exibir o cadastro antes de excluir, com aquele lance de readonly nos campos.
