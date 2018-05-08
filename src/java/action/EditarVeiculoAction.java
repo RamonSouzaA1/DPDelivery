@@ -38,7 +38,10 @@ public class EditarVeiculoAction implements Action {
                 Veiculo veiculo = new Veiculo();
                 veiculo = veiculoDAO.obterVeiculo(id);
                 veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
-                response.sendRedirect("sucesso.jsp");
+                veiculo = veiculoDAO.obterVeiculo(id);
+                if(!situacao.equals(veiculo.getEstado())){
+                    response.sendRedirect("sucessoComRestricao.jsp");
+                }else response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();

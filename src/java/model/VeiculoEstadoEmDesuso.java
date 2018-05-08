@@ -13,17 +13,17 @@ public class VeiculoEstadoEmDesuso implements VeiculoEstado{
 
     @Override
     public String getEstado() {
-        return "Desuso";
+        return "Em desuso";
     }
 
     @Override
     public String disponivel(Veiculo v) {
-        return "Veícculo não está disponivel";
+        return "Veículo não está disponivel";
     }
 
     @Override
     public String emServico(Veiculo v) {
-        return "Veícculo não está em serviço";
+        return "Veículo não está em serviço";
     }
 
     @Override
@@ -33,7 +33,7 @@ public class VeiculoEstadoEmDesuso implements VeiculoEstado{
 
     @Override
     public String emDesuso(Veiculo v) {
-        return "Veícculo já está em desuso";
+        return "Veículo já está em desuso";
     }
     
 }

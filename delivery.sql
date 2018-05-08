@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 08-Maio-2018 às 03:13
+-- Generation Time: 08-Maio-2018 às 13:03
 -- Versão do servidor: 5.7.19
--- PHP Version: 5.6.31
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `encomenda` (
 --
 
 INSERT INTO `encomenda` (`id`, `descricao`, `peso`, `id_cliente`, `logradouro`, `numero`, `bairro`, `cep`, `id_entregador`, `valor`, `situacao`, `data_pedido`, `data_entrega`, `memento`) VALUES
-(1, 'Malote de dinheiro e Cheques', 4, 1, 'Avenida Getulio Vargas', 1, 'Centro', '36050-100', 2, 100, 'Expedida', '28042018', '01052018', ''),
+(1, '1231', 12, 1, '21', 1, '32', '12', 1, 28, 'Devolvida', '12', '1', ' -> Devolvida'),
 (3, 'Caixa', 3, 2, 'Avenida Rio Branco', 2, 'Centro', '36030130', 1, 14.5, 'Em trânsito', '05052018', '06052018', '-> Em trânsito -> Em trânsito'),
 (4, 'Marmitex', 1, 1, 'Rua Diomar Monteiro', 1, 'Grama', '36052110', 1, 11.5, 'Expedida', '05052018', '06052018', 'Expedida -> Em trânsito -> Expedida');
 
@@ -169,15 +169,15 @@ CREATE TABLE IF NOT EXISTS `veiculo` (
 --
 
 INSERT INTO `veiculo` (`id`, `placa`, `marca`, `modelo`, `situacao`) VALUES
-(1, 'PVV9999', 'Honda', 'CG Titan 150', 'Disponível'),
-(2, 'xxx1234', 'BMW', 'BMW', 'Oficina'),
+(1, 'HLL2124', 'Jeep', 'Compass', 'Em desuso'),
+(2, 'xxx1234', 'Volks', 'Gol', 'Disponível'),
 (3, 'PYI4587', 'Honda', 'Start 160cc', 'null'),
 (4, 'GUM7119', 'Fiat', 'Palio 1.0', 'null'),
 (5, 'PXR2199', 'Honda', 'XTZ 300cc', 'Disponível'),
-(6, 'HLT7119', 'Fiat', 'Palio', 'Oficina'),
+(6, 'HLL2124', 'Honda', 'CG', 'Oficina'),
 (7, 'HLT7119', 'FIAT', 'Siena', 'Em serviço'),
 (8, 'XYZ1234', 'Yamaha', 'YBR', 'Em serviço'),
-(9, 'aa', 'aa', 'aa', 'Disponível');
+(9, 'PVV2130', 'Honda', 'CG', 'Em serviço');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

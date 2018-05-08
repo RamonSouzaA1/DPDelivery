@@ -56,7 +56,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="campo5">Situação</label>
-                        <select class="form-control" id="campo3" name="txtSituacao">
+                        <select class="form-control" id="campo5" name="txtSituacao">
                             <option value="Disponível">Disponível</option>
                             <option value="Em serviço">Em serviço</option>
                             <option value="Oficina">Oficina</option>

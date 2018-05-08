@@ -24,7 +24,6 @@ public class VeiculoEstadoOficina implements VeiculoEstado{
 
     @Override
     public String emServico(Veiculo v) {
-        
         return "Veiculo não pode entrar em serviço.";
     }
 
