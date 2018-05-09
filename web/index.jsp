@@ -79,9 +79,9 @@
             </div> 
             <div class="row" style="text-align: center">
                 <h2 style="text-align: center">Verificação</h2>
-                <!--<form action="FrontController?action=LerFuncionarioCozinha" method="post">-->
-                <button class="btn btn-danger medio disabled">Funções Funcionários</button>
-                <!--</form>-->
+                <form action="FrontController?action=LerFuncionario" method="post">
+                    <button class="btn btn-danger medio">Funções Funcionários</button>
+                </form>
 
             </div>
             <br>
