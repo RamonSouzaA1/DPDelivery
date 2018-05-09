@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Apagar Entregador</title>
+        <title>Apagar Montador</title>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -29,13 +29,13 @@
          </div>
         </nav>
         <div id="main" class="container-fluid">
-         <h3 class="page-header">Apagar Entregador</h3>
+         <h3 class="page-header">Apagar Montador</h3>
         
-        <form action="FrontController?action=ApagarEntregador" method="post">
+        <form action="FrontController?action=ApagarMontador" method="post">
            
         <div class="row">
              <div class="form-group col-md-6">
-               <label for="campo1">Digite o ID do entregador</label>
+               <label for="campo1">Digite o ID do Montador</label>
                <input type="text" class="form-control" id="campo1" name="textId"/>
              </div>
              </div>

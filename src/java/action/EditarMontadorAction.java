@@ -10,16 +10,16 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Entregador;
-import persistence.EntregadorDAO;
+import model.Montador;
+import persistence.MontadorDAO;
 
 /**
  *
  * @author Ramon
  */
-public class EditarEntregadorAction implements Action {
+public class EditarMontadorAction implements Action {
 
-    public EditarEntregadorAction() {
+    public EditarMontadorAction() {
     }
 
     @Override
@@ -28,16 +28,14 @@ public class EditarEntregadorAction implements Action {
         int id = Integer.parseInt(request.getParameter("txtId"));
         String nome = request.getParameter("txtNome");
         String situacao = request.getParameter("txtSituacao");
-        //chave estrangeira
-        int id_veiculo = Integer.parseInt(request.getParameter("txtId_veiculo"));
         if (nome.equals("") || situacao.equals((""))) {
             response.sendRedirect("index.jsp");
         } else {
             try {
-                EntregadorDAO entregadorDAO = new EntregadorDAO();
-                Entregador entregador = new Entregador();
-                entregador = entregadorDAO.obterEntregador(id);
-                entregadorDAO.editar(entregador, nome, situacao, id_veiculo);
+                MontadorDAO montadorDAO = new MontadorDAO();
+                Montador montador = new Montador();
+                montador = montadorDAO.obterMontador(id);
+                montadorDAO.editar(montador, nome, situacao);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

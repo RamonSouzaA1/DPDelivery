@@ -63,6 +63,10 @@
                             <button class="btn btn-success medio">Entregadores</button>
                         </form>
                         <hr>
+                        <form action="FrontController?action=LerMontador" method="post">
+                            <button class="btn btn-success medio">Montadores</button>
+                        </form>
+                        <hr>
                         <form action="FrontController?action=LerVeiculo" method="post">
                             <button class="btn btn-success medio">Veiculos</button>
                         </form>

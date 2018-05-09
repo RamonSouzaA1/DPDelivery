@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Editar Entregador</title>
+        <title>Editar Montador</title>
     </head>
 
     <body>
@@ -30,12 +30,12 @@
             </div>
         </nav>
         <div id="main" class="container-fluid">
-            <h3 class="page-header">Edição de Entregador</h3>
+            <h3 class="page-header">Edição de Montador</h3>
 
-            <form action="FrontController?action=EditarEntregador" method="post">
+            <form action="FrontController?action=EditarMontador" method="post">
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="campo1">ID Entregador</label>
+                        <label for="campo1">ID Montador</label>
                         <input type="text" class="form-control" id="campo1" name="txtId"/>
                     </div>   
 
@@ -53,12 +53,6 @@
                             <option value="Demitido">Demitido</option>
                         </select>
                     </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="campo4">Id Veículo</label>
-                        <input type="text" class="form-control" id="campo4" name="txtId_veiculo"/>
-                    </div>
-
                 </div>     
 
                 <hr/>

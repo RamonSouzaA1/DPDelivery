@@ -7,8 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Apagar Entregador</title>
+        <title>Cadastro de Montador</title>
     </head>
+    
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
          <div class="container-fluid">
@@ -29,20 +30,21 @@
          </div>
         </nav>
         <div id="main" class="container-fluid">
-         <h3 class="page-header">Apagar Entregador</h3>
-        
-        <form action="FrontController?action=ApagarEntregador" method="post">
-           
-        <div class="row">
+        <h3 class="page-header">Cadastro de Montador</h3>
+       
+        <form action="FrontController?action=GravarMontador" method="post">
+            
+            <div class="row">
              <div class="form-group col-md-6">
-               <label for="campo1">Digite o ID do entregador</label>
-               <input type="text" class="form-control" id="campo1" name="textId"/>
+               <label for="campo1">Nome</label>
+               <input type="text" class="form-control" id="campo1" name="txtNome"/>
              </div>
-             </div>
-             <hr />
+            </div>     
+
+            <hr/>
               <div id="actions" class="row">
                 <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary">Confirmar</button>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
               </div>
         </form>
@@ -51,3 +53,4 @@
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
+
