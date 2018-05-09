@@ -28,6 +28,11 @@ public class Entregador extends Situacao implements Observer{
     public Entregador(int id) {
         this.id = id;
     }
+    
+    public Entregador(Observable veiculo) {
+        this.veiculo = veiculo;
+        veiculo.addObserver(this);
+    }
 
     public Entregador(int id, String nome, String situacao, int id_veiculo) {
         this.id = id;
@@ -83,9 +88,9 @@ public class Entregador extends Situacao implements Observer{
     public void update(Observable veiculoSubject, Object arg) {
         if(veiculoSubject instanceof Veiculo){
             Veiculo veiculo = (Veiculo) veiculoSubject;
-            
-            //veiculoDisponivel = veiculo.getEstado();
-            //retornar alguma coisa em alguma tela informando que tem veiculo disponivel
+            BufferSingleton.getInstance().getEntregadoresSingleton().add("O Entregador " + this.nome + " está com veículo: "
+                    + veiculo.getPlaca());
+                                           
         }
     }
     

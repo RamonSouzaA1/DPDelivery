@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Entregador;
 import model.Veiculo;
 import persistence.VeiculoDAO;
 
@@ -21,11 +22,18 @@ public class GravarVeiculoAction implements Action {
         String placa = request.getParameter("txtPlaca");
         String marca = request.getParameter("txtMarca");
         String modelo = request.getParameter("txtModelo");
+        String nomeFuncionario = request.getParameter("txtNomeFuncionario");
         if(placa.equals("")){
             response.sendRedirect("index.jsp");
         } else{
             try{
+                
                 Veiculo veiculo = new Veiculo(placa, marca, modelo);
+                
+                Entregador entregador = new Entregador(veiculo);
+                entregador.setNome(nomeFuncionario);
+                veiculo.setPlaca(placa);
+                
                 VeiculoDAO.getInstance().save(veiculo);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)

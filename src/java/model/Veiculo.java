@@ -25,6 +25,7 @@ public class Veiculo extends Observable {
     private String marca;
     private String modelo;
     public VeiculoEstado estado;
+    public String nomeFuncionario;
 
     public Veiculo() {
     }
@@ -92,6 +93,14 @@ public class Veiculo extends Observable {
         setChanged();
         notifyObservers();
     }
+    
+    public String getNomeFuncionario() {
+        return nomeFuncionario;
+    }
+
+    public void setNomeFuncionario(String nomeFuncionario) {
+        this.nomeFuncionario = nomeFuncionario;
+    }
 
     public int getId() {
         return id;
@@ -107,6 +116,8 @@ public class Veiculo extends Observable {
 
     public void setPlaca(String placa) {
         this.placa = placa;
+        setChanged();
+        notifyObservers();
     }
 
     public String getMarca() {

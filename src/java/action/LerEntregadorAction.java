@@ -11,6 +11,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.BufferSingleton;
 import model.Entregador;
 import persistence.EntregadorDAO;
 
@@ -21,6 +22,9 @@ public class LerEntregadorAction implements Action{
             try{
                 List<Entregador> entregadores = new ArrayList<Entregador>();
                 entregadores = EntregadorDAO.getInstance().obterEntregadores();
+                
+                request.setAttribute("MensagemEntregador", BufferSingleton.getInstance().getEntregadoresSingleton());
+                
                 request.setAttribute("entregadores", entregadores);
                 RequestDispatcher view = request.getRequestDispatcher("entregadorConsulta.jsp");
                 view.forward(request, response);
