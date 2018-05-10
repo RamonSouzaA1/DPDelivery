@@ -56,7 +56,7 @@ public class EncomendaDAO {
             comando.setInt(2, peso);
             comando.setInt(3, id_cliente);
             comando.setString(4, logradouro);
-            comando.setInt(5, id_cliente);
+            comando.setInt(5, numero);
             comando.setDouble(6, valor);
             comando.setString(7, bairro);
             comando.setString(8, cep);

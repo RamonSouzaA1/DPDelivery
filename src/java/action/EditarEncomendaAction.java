@@ -73,8 +73,11 @@ public class EditarEncomendaAction implements Action{
                 String memento = encomenda.getMemento();
                 memento = memento + " -> " + situacao;
                 
-                this.alocarEntregador(id_entregador);
-                
+                if(!situacao.equals("Entregue") && !situacao.equals("Devolvida"))
+                    this.alocarEntregador(id_entregador);
+                else
+                    this.desalocarEntregadorVeiculo(id_entregador);
+
                 encomendaDAO.editar(encomenda, descricao, peso, id_cliente, logradouro, numero, valor, bairro,
                         cep, id_entregador, situacao, data_pedido, data_entrega, memento);
                 response.sendRedirect("sucesso.jsp");
@@ -111,5 +114,19 @@ public class EditarEncomendaAction implements Action{
         }
     }
     
+    public void desalocarEntregadorVeiculo(int id_entregador) throws ClassNotFoundException, SQLException
+    {
+        EntregadorDAO entregadorDAO = new EntregadorDAO();
+        Entregador entregador = new Entregador();
+        entregador = entregadorDAO.obterEntregador(id_entregador);
+        entregador.setSituacao("Disponível");
+        entregadorDAO.editar(entregador, entregador.getNome(), "Disponível", entregador.getId_veiculo());
+        
+        int id_veiculo = entregador.getId_veiculo();
+        VeiculoDAO veiculoDAO = new VeiculoDAO();
+        Veiculo veiculo = new Veiculo();
+        veiculo = veiculoDAO.obterVeiculo(id_veiculo);
+        veiculoDAO.editar(veiculo, veiculo.getPlaca(), veiculo.getMarca(), veiculo.getModelo(), "Disponível");
+    }
     
 }
