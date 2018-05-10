@@ -32,12 +32,6 @@ public class LerFuncionarioAction implements Action {
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException {
         try {
-//                List<Entregador> entregadores = new ArrayList<Entregador>();
-//                entregadores = EntregadorDAO.getInstance().obterEntregadores();
-//                request.setAttribute("entregadores", entregadores);
-//                List<Montador> montadores = new ArrayList<Montador>();
-//                montadores = MontadorDAO.getInstance().obterMontadores();
-//                request.setAttribute("montadores", montadores);
 
             FuncionarioMontador montadorTeste = new FuncionarioMontador(null);
             FuncionarioEntregador entregadorTeste = new FuncionarioEntregador(montadorTeste);
@@ -45,10 +39,6 @@ public class LerFuncionarioAction implements Action {
             request.setAttribute("montador", montadorTeste);
             request.setAttribute("entregador", entregadorTeste);
             
-//                FuncionarioMontador listaMontador = new FuncionarioMontador(null);
-//                FuncionarioEntregador listaEntregador = new FuncionarioEntregador(listaMontador);
-//                listaEntregador.setEntregadores(entregadores);
-//                listaMontador.setMontadores(montadores);
             RequestDispatcher view = request.getRequestDispatcher("funcionarioConsulta.jsp");
             view.forward(request, response);
         
