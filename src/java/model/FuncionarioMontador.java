@@ -25,10 +25,11 @@ public class FuncionarioMontador extends Funcionario{
     public FuncionarioMontador(Funcionario proximoFuncionario){
         listaFuncao.add(RolTarefas.getInstance().getFuncaoMontar());
         this.setProximoFuncionario(proximoFuncionario);
+        this.descricaoCargo = this.getDescricaoCargo();
     }
 
     @Override
     public String getDescricaoCargo() {
-        return "Montador";
+        return "Faz montagem dos móveis.";
     }
 }

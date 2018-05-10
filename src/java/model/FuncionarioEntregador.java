@@ -27,10 +27,11 @@ public class FuncionarioEntregador extends Funcionario{
     public FuncionarioEntregador(Funcionario proximoFuncionario){
         listaFuncao.add(RolTarefas.getInstance().getFuncaoEntregar());
         this.setProximoFuncionario(proximoFuncionario);
+        this.descricaoCargo = this.getDescricaoCargo();
     }
 
     @Override
     public String getDescricaoCargo() {
-        return "Entregador";
+        return "Faz entregas das encomendas.";
     }
 }

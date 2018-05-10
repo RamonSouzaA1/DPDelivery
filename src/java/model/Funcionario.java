@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public abstract class Funcionario {
     protected ArrayList listaFuncao = new ArrayList();
     private Funcionario proximoFuncionario;
+    public String tarefa;
+    public String descricaoCargo;
 
     public ArrayList getListaFuncao() {
         return listaFuncao;
