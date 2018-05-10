@@ -30,12 +30,3 @@ Função ~ TipoDocumento
 Tarefa ~ Documento
 RolTarefa ~ RolDocumento
 Funcionario = Funcionario
-
-
-Falta fazer
-Observer
-Chain
-
-- Obs: Memento falta desfazer
-- Explicar o template method
-- Obs: a mensagem do state está fixa. Caso termine, passar a mensagem que vem do return das classes de estado.
