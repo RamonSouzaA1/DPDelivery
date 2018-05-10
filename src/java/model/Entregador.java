@@ -88,7 +88,7 @@ public class Entregador extends Situacao implements Observer{
     public void update(Observable veiculoSubject, Object arg) {
         if(veiculoSubject instanceof Veiculo){
             Veiculo veiculo = (Veiculo) veiculoSubject;
-            BufferSingleton.getInstance().getEntregadoresSingleton().add("O Entregador " + this.nome + " está com veículo: "
+            BufferSingleton.getInstance().getEntregadoresSingleton().add("O Entregador " + this.nome + " está com veículo de placa: "
                     + veiculo.getPlaca());
                                            
         }
