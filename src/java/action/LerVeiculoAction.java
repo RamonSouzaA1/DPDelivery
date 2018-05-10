@@ -22,6 +22,18 @@ public class LerVeiculoAction implements Action{
                 List<Veiculo> veiculos = new ArrayList<Veiculo>();
                 veiculos = VeiculoDAO.getInstance().obterVeiculos();
                 request.setAttribute("veiculos", veiculos);
+                
+                List<Veiculo> veiculosDisponiveis = new ArrayList<Veiculo>();
+                for(int i = 0; i < veiculos.size(); i++)
+                {
+                    Veiculo v = veiculos.get(i);
+                    if(v.getEstado().equals("Disponível"))
+                    {
+                        veiculosDisponiveis.add(v);
+                    }
+                }
+                request.setAttribute("veiculosDisponiveis", veiculosDisponiveis);
+                
                 RequestDispatcher view = request.getRequestDispatcher("veiculoConsulta.jsp");
                 view.forward(request, response);
             } catch(SQLException ex)

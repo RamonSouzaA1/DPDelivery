@@ -14,54 +14,74 @@
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
-         <div class="container-fluid">
-          <div class="navbar-header">
-           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-           </button>
-           <a class="navbar-brand" href="#">DPDelivery</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.jsp">Início</a></li>
-           </ul>
-          </div>
-         </div>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">DPDelivery</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.jsp">Início</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
         <div id="main" class="container-fluid">
-        <h3 class="page-header">Consulta de Veículo</h3>
-        <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <tr>
-                <td><stong>Id</stong></td>
-                <td><stong>Placa</stong></td>
-                <td><stong>Marca</stong></td>
-                <td><stong>Modelo</stong></td>
-               
-            </tr>
-            <c:forEach items="${veiculos}" var="veiculo">
-                <tr>
-                    <td><c:out value="${veiculo.id}"></c:out></td>
-                    <td><c:out value="${veiculo.placa}"></c:out></td>
-                    <td><c:out value="${veiculo.marca}"></c:out></td>
-                    <td><c:out value="${veiculo.modelo}"></c:out></td>
-                    
+            <h3 class="page-header">Consulta de Veículo</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td><stong>Id</stong></td>
+                    <td><stong>Placa</stong></td>
+                    <td><stong>Marca</stong></td>
+                    <td><stong>Modelo</stong></td>
+
                     </tr>
-            </c:forEach>
-        </table>
+                    <c:forEach items="${veiculos}" var="veiculo">
+                        <tr>
+                            <td><c:out value="${veiculo.id}"></c:out></td>
+                            <td><c:out value="${veiculo.placa}"></c:out></td>
+                            <td><c:out value="${veiculo.marca}"></c:out></td>
+                            <td><c:out value="${veiculo.modelo}"></c:out></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            
+            <h4 class="page-header">Veiculos Disponíveis</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td><stong>Id</stong></td>
+                    <td><stong>Placa</stong></td>
+                    <td><stong>Marca</stong></td>
+                    <td><stong>Modelo</stong></td>
+
+                    </tr>
+                    <c:forEach items="${veiculosDisponiveis}" var="veiculoDisponivel">
+                        <tr>
+                            <td><c:out value="${veiculoDisponivel.id}"></c:out></td>
+                            <td><c:out value="${veiculoDisponivel.placa}"></c:out></td>
+                            <td><c:out value="${veiculoDisponivel.marca}"></c:out></td>
+                            <td><c:out value="${veiculoDisponivel.modelo}"></c:out></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+
+            </div>
+            <div id="actions" class="row">
+                <div class="col-md-12">
+                    <a href="veiculoAdicionar.jsp" class="btn btn-primary">Adicionar</a>
+                    <a href="veiculoEditar.jsp" class="btn btn-success">Editar</a>
+                    <a href="veiculoApagar.jsp" class="btn btn-danger">Apagar</a>
+                    <a href="index.jsp" class="btn btn-warning">Fechar</a>
+                </div>
+            </div>
         </div>
-        <div id="actions" class="row">
-     <div class="col-md-12">
-      <a href="veiculoAdicionar.jsp" class="btn btn-primary">Adicionar</a>
-      <a href="veiculoEditar.jsp" class="btn btn-success">Editar</a>
-      <a href="veiculoApagar.jsp" class="btn btn-danger">Apagar</a>
-      <a href="index.jsp" class="btn btn-warning">Fechar</a>
-     </div>
-    </div>
-  </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>
