@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 09-Maio-2018 às 02:39
+-- Generation Time: 10-Maio-2018 às 03:50
 -- Versão do servidor: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -109,16 +109,14 @@ CREATE TABLE IF NOT EXISTS `encomenda` (
   PRIMARY KEY (`id`),
   KEY `cliente_id_cliente_fk` (`id_cliente`),
   KEY `entregador_id_entregador_fk` (`id_entregador`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `encomenda`
 --
 
 INSERT INTO `encomenda` (`id`, `descricao`, `peso`, `id_cliente`, `logradouro`, `numero`, `bairro`, `cep`, `id_entregador`, `valor`, `situacao`, `data_pedido`, `data_entrega`, `memento`) VALUES
-(1, 'Malote de dinheiro e Cheques', 4, 1, 'Avenida Getulio Vargas', 1, 'Centro', '36050-100', 2, 100, 'Expedida', '28042018', '01052018', ''),
-(3, 'Caixa', 3, 2, 'Avenida Rio Branco', 2, 'Centro', '36030130', 1, 14.5, 'Em trânsito', '05052018', '06052018', '-> Em trânsito -> Em trânsito'),
-(4, 'Marmitex', 1, 1, 'Rua Diomar Monteiro', 1, 'Grama', '36052110', 1, 11.5, 'Expedida', '05052018', '06052018', 'Expedida -> Em trânsito -> Expedida');
+(7, 'Mesa de Jantar', 45, 1, 'Avenida Juiz de Fora', 1150, 'Parque Guarani', '36048-001', 8, 77.5, 'Pendente', '10/05/2018', '10/05/2018', 'Expedida -> Em trânsito -> Pendente');
 
 -- --------------------------------------------------------
 
@@ -134,19 +132,20 @@ CREATE TABLE IF NOT EXISTS `entregador` (
   `id_veiculo` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_veiculo` (`id_veiculo`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `entregador`
 --
 
 INSERT INTO `entregador` (`id`, `nome`, `situacao`, `id_veiculo`) VALUES
-(1, 'Jorginho', 'Disponível', 1),
+(1, 'Jorginho', 'Em serviço', 1),
 (2, 'Fernando David', 'Disponível', 2),
 (3, 'Ramon', 'Disponível', 7),
-(4, 'Kaio', 'Disponível', 4),
-(5, 'Rafael', 'Disponível', 1),
-(6, 'Arielson', 'Em serviço', 8);
+(4, 'Kaio', 'Em serviço', 4),
+(5, 'Rafael', 'Em serviço', 1),
+(6, 'Arielson', 'Em serviço', 9),
+(8, 'Victor', 'Em serviço', 10);
 
 -- --------------------------------------------------------
 
@@ -185,22 +184,23 @@ CREATE TABLE IF NOT EXISTS `veiculo` (
   `modelo` text,
   `situacao` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `veiculo`
 --
 
 INSERT INTO `veiculo` (`id`, `placa`, `marca`, `modelo`, `situacao`) VALUES
-(1, 'PVV9999', 'Honda', 'CG Titan 150', 'Disponível'),
+(1, 'PVV9999', 'Honda', 'CG Titan 150', 'Em serviço'),
 (2, 'xxx1234', 'BMW', 'BMW', 'Oficina'),
-(3, 'PYI4587', 'Honda', 'Start 160cc', 'null'),
-(4, 'GUM7119', 'Fiat', 'Palio 1.0', 'null'),
+(3, 'PYI4587', 'Honda', 'Start 160cc', 'Disponível'),
+(4, 'GUM7119', 'Fiat', 'Palio 1.0', 'Disponível'),
 (5, 'PXR2199', 'Honda', 'XTZ 300cc', 'Disponível'),
 (6, 'HLT7119', 'Fiat', 'Palio', 'Oficina'),
-(7, 'HLT7119', 'FIAT', 'Siena', 'Em serviço'),
+(7, 'HLT7119', 'FIAT', 'Siena', 'Disponível'),
 (8, 'XYZ1234', 'Yamaha', 'YBR', 'Em serviço'),
-(9, 'aa', 'aa', 'aa', 'Disponível');
+(9, 'ZXC1234', 'Volkswagen', 'Fox', 'Disponível'),
+(10, 'QWE7894', 'Baú', 'Caminhao', 'Disponível');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
