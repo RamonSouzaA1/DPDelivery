@@ -13,9 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
 import model.ClienteCNPJ;
 import model.Encomenda;
+import model.Entregador;
+import model.Veiculo;
 import persistence.ClienteCnpjDAO;
 import persistence.ClienteDAO;
 import persistence.EncomendaDAO;
+import persistence.EntregadorDAO;
+import persistence.VeiculoDAO;
 
 /**
  *
@@ -62,13 +66,14 @@ public class EditarEncomendaAction implements Action{
                 }
                 
                 EncomendaDAO encomendaDAO = new EncomendaDAO();
-                
                 Encomenda encomenda = new Encomenda();
                 encomenda = encomendaDAO.obterEncomenda(id);
                 
                 //memento
                 String memento = encomenda.getMemento();
                 memento = memento + " -> " + situacao;
+                
+                this.alocarEntregador(id_entregador);
                 
                 encomendaDAO.editar(encomenda, descricao, peso, id_cliente, logradouro, numero, valor, bairro,
                         cep, id_entregador, situacao, data_pedido, data_entrega, memento);
@@ -82,7 +87,29 @@ public class EditarEncomendaAction implements Action{
         }
         }
     }
-
+    
+    public void alocarEntregador(int id_entregador) throws ClassNotFoundException, SQLException
+    {
+        EntregadorDAO entregadorDAO = new EntregadorDAO();
+        Entregador entregador = new Entregador();
+        entregador = entregadorDAO.obterEntregador(id_entregador);
+        if(entregador.getSituacao().equals("Disponível"))
+        {
+            entregadorDAO.editar(entregador, entregador.getNome(), "Em serviço", entregador.getId_veiculo());
+            alocarVeiculo(entregador.getId_veiculo());
+        }
+    }
+    
+    public void alocarVeiculo(int id_veiculo) throws ClassNotFoundException, SQLException
+    {
+        VeiculoDAO veiculoDAO = new VeiculoDAO();
+        Veiculo veiculo = new Veiculo();
+        veiculo = veiculoDAO.obterVeiculo(id_veiculo);
+        if(veiculo.getEstado().equals("Disponível"))
+        {
+            veiculoDAO.editar(veiculo, veiculo.getPlaca(), veiculo.getMarca(), veiculo.getModelo(), "Em serviço");
+        }
+    }
     
     
 }

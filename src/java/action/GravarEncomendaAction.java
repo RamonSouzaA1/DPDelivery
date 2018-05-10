@@ -10,18 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
 import model.ClienteCNPJ;
 import model.Encomenda;
+import model.Entregador;
+import model.Veiculo;
 import persistence.ClienteCnpjDAO;
 import persistence.ClienteDAO;
 import persistence.EncomendaDAO;
+import persistence.EntregadorDAO;
+import persistence.VeiculoDAO;
 
 public class GravarEncomendaAction implements Action {
 
     public GravarEncomendaAction() {
-    
+
     }
-    
+
     public void execute(HttpServletRequest request,
-            HttpServletResponse response) throws IOException{
+            HttpServletResponse response) throws IOException {
         String descricao = request.getParameter("txtDescricao");
         int peso = Integer.parseInt(request.getParameter("txtPeso"));
         String tipoCliente = request.getParameter("txtTipoCliente");
@@ -34,19 +38,17 @@ public class GravarEncomendaAction implements Action {
         String data_pedido = request.getParameter("txtData_pedido");
         String data_entrega = request.getParameter("txtData_entrega");
         double valor;
-        
-        if(descricao.equals("")){
+
+        if (descricao.equals("")) {
             response.sendRedirect("index.jsp");
-        } else{
-            try{
-                if(tipoCliente.equals("CPF"))
-                {
+        } else {
+            try {
+                if (tipoCliente.equals("CPF")) {
                     ClienteDAO clienteDAO = new ClienteDAO();
                     Cliente cliente = new Cliente();
                     cliente = clienteDAO.obterCliente(id_cliente);
                     valor = cliente.obterCalculoFrete(peso);
-                } else 
-                {
+                } else {
                     ClienteCnpjDAO clienteDAO = new ClienteCnpjDAO();
                     ClienteCNPJ cliente = new ClienteCNPJ();
                     cliente = clienteDAO.obterCliente(id_cliente);
@@ -56,16 +58,39 @@ public class GravarEncomendaAction implements Action {
                 //inicializa encomenda e calcula o valor <Strategy>
                 Encomenda encomenda = new Encomenda(descricao, peso, id_cliente, logradouro, numero, valor, bairro,
                         cep, id_entregador, data_pedido, data_entrega);
-                
+                this.alocarEntregador(id_entregador);
                 EncomendaDAO.getInstance().save(encomenda);
+                this.alocarEntregador(id_entregador);
+                
                 response.sendRedirect("sucesso.jsp");
-            } catch(SQLException ex)
-            {
+            } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
+                ex.printStackTrace();
+            }
         }
+    }
+    
+    public void alocarEntregador(int id_entregador) throws ClassNotFoundException, SQLException
+    {
+        EntregadorDAO entregadorDAO = new EntregadorDAO();
+        Entregador entregador = new Entregador();
+        entregador = entregadorDAO.obterEntregador(id_entregador);
+        if(entregador.getSituacao().equals("Disponível"))
+        {
+            entregadorDAO.editar(entregador, entregador.getNome(), "Em serviço", entregador.getId_veiculo());
+        }
+    }
+    
+    public void alocarVeiculo(int id_veiculo) throws ClassNotFoundException, SQLException
+    {
+        VeiculoDAO veiculoDAO = new VeiculoDAO();
+        Veiculo veiculo = new Veiculo();
+        veiculo = veiculoDAO.obterVeiculo(id_veiculo);
+        if(veiculo.getEstado().equals("Disponível"))
+        {
+            veiculoDAO.editar(veiculo, veiculo.getPlaca(), veiculo.getMarca(), veiculo.getModelo(), "Em serviço");
         }
     }
 }
