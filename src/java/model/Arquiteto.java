@@ -7,9 +7,9 @@ package model;
 
 /**
  *
- * @author Ramon
+ * @author victor.domingos
  */
-public class Montador extends Situacao{
+public class Arquiteto extends Situacao{
     private int id;
     private String nome;
 
@@ -29,19 +29,19 @@ public class Montador extends Situacao{
         this.nome = nome;
     }
 
-    public Montador() {
+    public Arquiteto() {
     }
 
-    public Montador(int id) {
+    public Arquiteto(int id) {
         this.id = id;
     }
 
-    public Montador(String nome) {
+    public Arquiteto(String nome) {
         this.nome = nome;
         this.setSituacao("Disponível");
     }
 
-    public Montador(int id, String nome, String situacao) {
+    public Arquiteto(int id, String nome, String situacao) {
         this.id = id;
         this.nome = nome;
         this.setSituacao(situacao);
@@ -51,5 +51,4 @@ public class Montador extends Situacao{
     public String getDados() {
         return this.getSituacao();
     }
-    
 }

@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Montador;
+import model.Estagiario;
 import persistence.MontadorDAO;
 
 public class GravarMontadorAction implements Action {
@@ -24,7 +24,7 @@ public class GravarMontadorAction implements Action {
             response.sendRedirect("index.jsp");
         } else{
             try{
-                Montador montador = new Montador(nome);
+                Estagiario montador = new Estagiario(nome);
                 MontadorDAO.getInstance().save(montador);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)

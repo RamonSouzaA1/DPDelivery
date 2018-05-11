@@ -11,18 +11,18 @@ import java.util.List;
  *
  * @author Ramon
  */
-public class FuncionarioMontador extends Funcionario{
-    private List<Montador> montadores;
+public class FuncionarioEstagiario extends Funcionario{
+    private List<Estagiario> montadores;
 
-    public List<Montador> getMontadores() {
+    public List<Estagiario> getMontadores() {
         return montadores;
     }
 
-    public void setMontadores(List<Montador> montadores) {
+    public void setMontadores(List<Estagiario> montadores) {
         this.montadores = montadores;
     }
     
-    public FuncionarioMontador(Funcionario proximoFuncionario){
+    public FuncionarioEstagiario(Funcionario proximoFuncionario){
         listaFuncao.add(RolTarefas.getInstance().getFuncaoMontar());
         this.setProximoFuncionario(proximoFuncionario);
         this.descricaoCargo = this.getDescricaoCargo();

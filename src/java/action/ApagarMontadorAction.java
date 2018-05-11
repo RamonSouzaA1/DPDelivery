@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Montador;
+import model.Estagiario;
 import persistence.MontadorDAO;
 
 public class ApagarMontadorAction implements Action{
@@ -25,7 +25,7 @@ public class ApagarMontadorAction implements Action{
         if (id.equals("")) {
             response.sendRedirect("index.jsp");
         } else {
-            Montador montador = new Montador(Integer.parseInt(id));
+            Estagiario montador = new Estagiario(Integer.parseInt(id));
             try {
                 MontadorDAO.getInstance().delete(montador);
                 response.sendRedirect("sucesso.jsp");

@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Entregador;
-import model.Montador;
+import model.Estagiario;
 
 /**
  *
@@ -42,7 +42,7 @@ public class MontadorDAO {
         }
     }
 
-    public void save(Montador montador) throws SQLException,
+    public void save(Estagiario montador) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -58,16 +58,16 @@ public class MontadorDAO {
         }
     }
 
-    public List<Montador> obterMontadores() throws ClassNotFoundException, SQLException {
+    public List<Estagiario> obterMontadores() throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
-        List<Montador> montadores = new ArrayList<Montador>();
+        List<Estagiario> montadores = new ArrayList<Estagiario>();
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM montador");
             while (rs.next()) {
-                Montador montador = new Montador(rs.getInt("id"),
+                Estagiario montador = new Estagiario(rs.getInt("id"),
                         rs.getString("nome"),
                         rs.getString("situacao"));
                 montadores.add(montador);
@@ -80,7 +80,7 @@ public class MontadorDAO {
         return montadores;
     }
 
-    public void delete(Montador montador) throws SQLException, ClassNotFoundException {
+    public void delete(Estagiario montador) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
@@ -94,16 +94,16 @@ public class MontadorDAO {
         }
     }
 
-    public Montador obterMontador(int id) throws ClassNotFoundException, SQLException {
+    public Estagiario obterMontador(int id) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
-        Montador montador = null;
+        Estagiario montador = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from montador where id = " + id);
             rs.first();
-            montador = new Montador(rs.getInt("id"),
+            montador = new Estagiario(rs.getInt("id"),
                     rs.getString("nome"),
                     rs.getString("situacao"));
 
@@ -115,7 +115,7 @@ public class MontadorDAO {
         return montador;
     }
     
-    public void editar(Montador montador, String nome, String situacao) throws SQLException, ClassNotFoundException {
+    public void editar(Estagiario montador, String nome, String situacao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {

@@ -11,7 +11,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Montador;
+import model.Estagiario;
 import persistence.MontadorDAO;
 
 public class LerMontadorAction implements Action{
@@ -19,7 +19,7 @@ public class LerMontadorAction implements Action{
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException{
             try{
-                List<Montador> montadores = new ArrayList<Montador>();
+                List<Estagiario> montadores = new ArrayList<Estagiario>();
                 montadores = MontadorDAO.getInstance().obterMontadores();
                 request.setAttribute("montadores", montadores);
                 RequestDispatcher view = request.getRequestDispatcher("montadorConsulta.jsp");

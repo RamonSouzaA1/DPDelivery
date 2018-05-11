@@ -16,8 +16,9 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.FuncionarioArquitetoMoveis;
 import model.FuncionarioEntregador;
-import model.FuncionarioMontador;
+import model.FuncionarioEstagiario;
 
 /**
  *
@@ -32,10 +33,11 @@ public class LerFuncionarioAction implements Action {
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException {
         try {
-
-            FuncionarioMontador montadorTeste = new FuncionarioMontador(null);
+            FuncionarioArquitetoMoveis arquiteto = new FuncionarioArquitetoMoveis(null);
+            FuncionarioEstagiario montadorTeste = new FuncionarioEstagiario(arquiteto);
             FuncionarioEntregador entregadorTeste = new FuncionarioEntregador(montadorTeste);
             
+            request.setAttribute("arquiteto", arquiteto);
             request.setAttribute("montador", montadorTeste);
             request.setAttribute("entregador", entregadorTeste);
             

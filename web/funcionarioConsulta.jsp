@@ -46,7 +46,7 @@
                     </table>
                 </div>
                 <div class="table-responsive">
-                    <h3>Montador</h3>
+                    <h3>Estagiário</h3>
                     <table class="table table-bordered">
                         <tr>
                             <td><strong>Descrição do Cargo</strong></td>
@@ -56,19 +56,32 @@
                         </tr>
                     </table>
                 </div>
+
+                <div class="table-responsive">
+                    <h3>Arquiteto</h3>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Descrição do Cargo</strong></td>
+                        </tr>
+                        <tr>
+                            <td><c:out value="${arquiteto.descricaoCargo}"></c:out></td>
+                    </tr>
+                </table>
             </div>
 
-            <div id="actions" class="row">
-                <div class="col-md-12">
-                    <a href="entregadorAdicionar.jsp" class="btn btn-primary">Adicionar</a>
-                    <a href="entregadorEditar.jsp" class="btn btn-success">Editar</a>
-                    <a href="entregadorApagar.jsp" class="btn btn-danger">Apagar</a>
-                    <a href="index.jsp" class="btn btn-warning">Fechar</a>
-                </div>
+        </div>
+
+        <div id="actions" class="row">
+            <div class="col-md-12">
+                <a href="entregadorAdicionar.jsp" class="btn btn-primary">Adicionar</a>
+                <a href="entregadorEditar.jsp" class="btn btn-success">Editar</a>
+                <a href="entregadorApagar.jsp" class="btn btn-danger">Apagar</a>
+                <a href="index.jsp" class="btn btn-warning">Fechar</a>
             </div>
         </div>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

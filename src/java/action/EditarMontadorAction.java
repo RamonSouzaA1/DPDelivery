@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Montador;
+import model.Estagiario;
 import persistence.MontadorDAO;
 
 /**
@@ -33,7 +33,7 @@ public class EditarMontadorAction implements Action {
         } else {
             try {
                 MontadorDAO montadorDAO = new MontadorDAO();
-                Montador montador = new Montador();
+                Estagiario montador = new Estagiario();
                 montador = montadorDAO.obterMontador(id);
                 montadorDAO.editar(montador, nome, situacao);
                 response.sendRedirect("sucesso.jsp");

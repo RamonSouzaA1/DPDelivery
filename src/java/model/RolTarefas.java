@@ -13,6 +13,15 @@ public class RolTarefas {
     private static RolTarefas rolTarefas = new RolTarefas();
     private FuncaoEntregar funcaoEntregar;
     private FuncaoMontar funcaoMontar;
+    private FuncaoProjetar funcaoProjetar;
+
+    public FuncaoProjetar getFuncaoProjetar() {
+        return funcaoProjetar;
+    }
+
+    public void setFuncaoProjetar(FuncaoProjetar funcaoProjetar) {
+        this.funcaoProjetar = funcaoProjetar;
+    }
     
     public static RolTarefas getInstance() {
         return rolTarefas;
@@ -41,6 +50,7 @@ public class RolTarefas {
     public RolTarefas() {
         this.funcaoEntregar = new FuncaoEntregar();
         this.funcaoMontar = new FuncaoMontar();
+        this.funcaoProjetar = new FuncaoProjetar();
     }
     
     
