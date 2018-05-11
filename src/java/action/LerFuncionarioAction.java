@@ -34,8 +34,10 @@ public class LerFuncionarioAction implements Action {
             HttpServletResponse response) throws IOException {
         try {
             FuncionarioArquitetoMoveis arquiteto = new FuncionarioArquitetoMoveis(null);
-            FuncionarioEstagiario montadorTeste = new FuncionarioEstagiario(arquiteto);
-            FuncionarioEntregador entregadorTeste = new FuncionarioEntregador(montadorTeste);
+            
+            FuncionarioEntregador entregadorTeste = new FuncionarioEntregador(arquiteto);
+            
+            FuncionarioEstagiario montadorTeste = new FuncionarioEstagiario(entregadorTeste);
             
             request.setAttribute("arquiteto", arquiteto);
             request.setAttribute("montador", montadorTeste);
