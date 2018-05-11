@@ -11,6 +11,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.BufferSingleton;
 import model.Veiculo;
 import persistence.VeiculoDAO;
 
@@ -33,7 +34,7 @@ public class LerVeiculoAction implements Action{
                     }
                 }
                 request.setAttribute("veiculosDisponiveis", veiculosDisponiveis);
-                
+                request.setAttribute("MensagemEntregador", BufferSingleton.getInstance().getEntregadoresSingleton());
                 RequestDispatcher view = request.getRequestDispatcher("veiculoConsulta.jsp");
                 view.forward(request, response);
             } catch(SQLException ex)

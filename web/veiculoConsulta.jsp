@@ -73,6 +73,23 @@
                 </table>
 
             </div>
+            
+            <h4 class="page-header">Destaques:</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <td><strong><font color="#FF0033">Observação:</font></strong></td>
+
+                    </tr>
+                    <c:forEach items="${MensagemEntregador}" var="entregador">
+                        <tr>
+                            <td><c:out value="${entregador}"></c:out></td>
+
+                            </tr>
+                    </c:forEach>
+                </table>
+            </div>
+            
             <div id="actions" class="row">
                 <div class="col-md-12">
                     <a href="veiculoAdicionar.jsp" class="btn btn-primary">Adicionar</a>

@@ -35,7 +35,7 @@ public class GravarVeiculoAction implements Action {
                 veiculo.setPlaca(placa);
                 
                 VeiculoDAO.getInstance().save(veiculo);
-                response.sendRedirect("sucesso.jsp");
+                response.sendRedirect("entregadorConsulta.jsp");
             } catch(SQLException ex)
             {
                 response.sendRedirect("erro.jsp");

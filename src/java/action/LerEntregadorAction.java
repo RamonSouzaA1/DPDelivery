@@ -22,9 +22,7 @@ public class LerEntregadorAction implements Action{
             try{
                 List<Entregador> entregadores = new ArrayList<Entregador>();
                 entregadores = EntregadorDAO.getInstance().obterEntregadores();
-                
-                request.setAttribute("MensagemEntregador", BufferSingleton.getInstance().getEntregadoresSingleton());
-                
+                                                
                 request.setAttribute("entregadores", entregadores);
                 RequestDispatcher view = request.getRequestDispatcher("entregadorConsulta.jsp");
                 view.forward(request, response);
