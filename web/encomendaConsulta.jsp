@@ -75,7 +75,12 @@
             </div>
             <div id="actions" class="row">
                 <div class="col-md-12">
-                    <a href="encomendaAdicionar.jsp" class="btn btn-primary">Adicionar</a>
+                    <form action="FrontController?action=PrepararGravarEncomenda&tipoCliente=CPF" method="post">
+                        <button type="submit" class="btn btn-primary">Adicionar para cliente CPF</button>
+                    </form>
+                    <form action="FrontController?action=PrepararGravarEncomenda&tipoCliente=CNPJ" method="post">
+                        <button type="submit" class="btn btn-primary">Adicionar para cliente CNPJ</button>
+                    </form>
                     <a href="encomendaEditar.jsp" class="btn btn-success">Editar</a>
                     <a href="encomendaApagar.jsp" class="btn btn-danger">Apagar</a>
                     <a href="index.jsp" class="btn btn-warning">Fechar</a>  
