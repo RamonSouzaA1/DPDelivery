@@ -28,7 +28,7 @@ public class GravarEncomendaAction implements Action {
             HttpServletResponse response) throws IOException {
         String descricao = request.getParameter("txtDescricao");
         int peso = Integer.parseInt(request.getParameter("txtPeso"));
-        String tipoCliente = request.getParameter("txtTipoCliente");
+        String tipoCliente = request.getParameter("tipoCliente");
         int id_cliente = Integer.parseInt(request.getParameter("txtId_cliente"));
         String logradouro = request.getParameter("txtLogradouro");
         int numero = Integer.parseInt(request.getParameter("txtNumero"));

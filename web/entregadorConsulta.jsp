@@ -55,7 +55,9 @@
             
             <div id="actions" class="row">
                 <div class="col-md-12">
-                    <a href="entregadorAdicionar.jsp" class="btn btn-primary">Adicionar</a>
+                    <form action="FrontController?action=PrepararGravarEntregador" method="post">
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
+                    </form>
                     <a href="entregadorEditar.jsp" class="btn btn-success">Editar</a>
                     <a href="entregadorApagar.jsp" class="btn btn-danger">Apagar</a>
                     <a href="index.jsp" class="btn btn-warning">Fechar</a>
