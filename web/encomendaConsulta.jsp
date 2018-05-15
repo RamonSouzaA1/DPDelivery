@@ -42,7 +42,7 @@
                         <td><strong>Logradouro</strong></td>
                         <td><strong>nº</strong></td>
                         <td><strong>Bairro</strong></td>
-                        <td><strong>CEP</strong></td>
+                        <td><strong>Valor</strong></td>
                         <td><strong>Id Entregador</strong></td>
                         <td><strong>Data do Pedido</strong></td>
                         <td><strong>Data da Entrega</strong></td>
@@ -58,7 +58,7 @@
                             <td><c:out value="${encomenda.logradouro}"></c:out></td>
                             <td><c:out value="${encomenda.numero}"></c:out></td>
                             <td><c:out value="${encomenda.bairro}"></c:out></td>
-                            <td><c:out value="${encomenda.cep}"></c:out></td>
+                            <td><c:out value="${encomenda.valor}"></c:out></td>
                             <td><c:out value="${encomenda.id_entregador}"></c:out></td>
                             <td><c:out value="${encomenda.data_pedido}"></c:out></td>
                             <td><c:out value="${encomenda.data_entrega}"></c:out></td>
@@ -78,9 +78,11 @@
                     <form action="FrontController?action=PrepararGravarEncomenda&tipoCliente=CPF" method="post">
                         <button type="submit" class="btn btn-primary">Adicionar para cliente CPF</button>
                     </form>
+                    <br>
                     <form action="FrontController?action=PrepararGravarEncomenda&tipoCliente=CNPJ" method="post">
                         <button type="submit" class="btn btn-primary">Adicionar para cliente CNPJ</button>
                     </form>
+                    <br>
                     <a href="encomendaEditar.jsp" class="btn btn-success">Editar</a>
                     <a href="encomendaApagar.jsp" class="btn btn-danger">Apagar</a>
                     <a href="index.jsp" class="btn btn-warning">Fechar</a>  

@@ -33,6 +33,18 @@
         </nav>
         <div id="main" class="container-fluid">
             <h3 class="page-header">Consulta Funcionarios</h3>
+            
+            <div class="table-responsive">
+                    <h3>Arquiteto</h3>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Descrição do Cargo</strong></td>
+                        </tr>
+                        <tr>
+                            <td><c:out value="${arquiteto.descricaoCargo}"></c:out></td>
+                    </tr>
+                </table>
+            </div>
 
             <div class="table-responsive">
                 <h3>Entregador</h3>
@@ -57,17 +69,7 @@
                     </table>
                 </div>
 
-                <div class="table-responsive">
-                    <h3>Arquiteto</h3>
-                    <table class="table table-bordered">
-                        <tr>
-                            <td><strong>Descrição do Cargo</strong></td>
-                        </tr>
-                        <tr>
-                            <td><c:out value="${arquiteto.descricaoCargo}"></c:out></td>
-                    </tr>
-                </table>
-            </div>
+                
 
         </div>
 

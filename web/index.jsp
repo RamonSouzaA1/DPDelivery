@@ -68,7 +68,7 @@
                         </form>
                         <hr>
                         <form action="FrontController?action=LerVeiculo" method="post">
-                            <button class="btn btn-success medio">Veiculos</button>
+                            <button class="btn btn-success medio">Veículos</button>
                         </form>
                         <hr>
                         <form action="FrontController?action=LerEncomenda" method="post">
