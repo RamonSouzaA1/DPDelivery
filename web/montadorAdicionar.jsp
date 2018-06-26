@@ -39,6 +39,12 @@
                <label for="campo1">Nome</label>
                <input type="text" class="form-control" id="campo1" name="txtNome"/>
              </div>
+                
+             <div class="form-group col-md-6">
+               <label for="campo1">Numero</label>
+               <input type="text" class="form-control" id="campo1" name="txtNumero"/>
+             </div>
+                
             </div>     
 
             <hr/>

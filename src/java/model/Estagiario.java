@@ -12,6 +12,16 @@ package model;
 public class Estagiario extends Situacao{
     private int id;
     private String nome;
+    private String refrigerante;
+
+
+
+    public Estagiario(int id, String nome, String situacao, String refrigerante) {
+        this.id = id;
+        this.nome = nome;
+        this.setSituacao(situacao);
+        this.refrigerante = refrigerante;
+    }
 
     public int getId() {
         return id;

@@ -46,6 +46,7 @@
                     <td><c:out value="${montador.id}"></c:out></td>
                     <td><c:out value="${montador.nome}"></c:out></td>
                     <td><c:out value="${montador.situacao}"></c:out></td>
+                    <td><c:out value="${montador.refrigerante}"></c:out></td>
                     </tr>
             </c:forEach>
         </table>

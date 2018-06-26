@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Entregador;
 import model.Estagiario;
+import padraoDecorator.Cachaca;
+import padraoDecorator.Coquetel;
+import padraoDecorator.Refrigerante;
 
 /**
  *
@@ -42,15 +45,24 @@ public class MontadorDAO {
         }
     }
 
-    public void save(Estagiario montador) throws SQLException,
+    public void save(Estagiario montador, int numero) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
+        
+        Coquetel meuCoquetel = new Cachaca();
+        
+        for(int i = 0; i< numero; i++){
+            
+            meuCoquetel = new Refrigerante(meuCoquetel);
+            
+        }
+     
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("INSERT INTO montador (nome, situacao)"
-                    + " VALUES ('" + montador.getNome() + "', '" + montador.getDados() + "')");
+            st.execute("INSERT INTO montador (nome, situacao, refrigerante)"
+                    + " VALUES ('" + montador.getNome() + "', '" + montador.getDados() + "', '" + meuCoquetel.getNome() + "')");
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -69,7 +81,8 @@ public class MontadorDAO {
             while (rs.next()) {
                 Estagiario montador = new Estagiario(rs.getInt("id"),
                         rs.getString("nome"),
-                        rs.getString("situacao"));
+                        rs.getString("situacao"),
+                        rs.getString("refrigerante"));
                 montadores.add(montador);
             }
         } catch (SQLException e) {
@@ -105,7 +118,8 @@ public class MontadorDAO {
             rs.first();
             montador = new Estagiario(rs.getInt("id"),
                     rs.getString("nome"),
-                    rs.getString("situacao"));
+                        rs.getString("situacao"),
+                        rs.getString("situacao"));
 
         } catch (SQLException e) {
             throw e;
